@@ -1,0 +1,4 @@
+diff id:000876,src:000863,time:1374556,execs:246185,op:havoc,rep:2 -> id:000877,src:000863,time:1380518,execs:247272,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_rb.c
+  New 'line' coverage: 266
+  New 'line' coverage: 267

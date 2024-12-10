@@ -1,0 +1,37 @@
+diff id:000844,src:000206,time:1271152,execs:227122,op:havoc,rep:5,+cov -> id:000845,src:000700,time:1286325,execs:229884,op:havoc,rep:5,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_rb.c
+  New 'function' coverage: __archive_rb_tree_insert_rebalance()
+  New 'function' coverage: __archive_rb_tree_reparent_nodes()
+  New 'line' coverage: 112
+  New 'line' coverage: 217
+  New 'line' coverage: 231
+  New 'line' coverage: 234
+  New 'line' coverage: 235
+  New 'line' coverage: 236
+  New 'line' coverage: 237
+  New 'line' coverage: 238
+  New 'line' coverage: 240
+  New 'line' coverage: 245
+  New 'line' coverage: 246
+  New 'line' coverage: 247
+  New 'line' coverage: 252
+  New 'line' coverage: 253
+  New 'line' coverage: 259
+  New 'line' coverage: 260
+  New 'line' coverage: 265
+  New 'line' coverage: 273
+  New 'line' coverage: 276
+  New 'line' coverage: 277
+  New 'line' coverage: 278
+  New 'line' coverage: 279
+  New 'line' coverage: 280
+  New 'line' coverage: 282
+  New 'line' coverage: 287
+  New 'line' coverage: 288
+  New 'line' coverage: 289
+  New 'line' coverage: 290
+  New 'line' coverage: 292
+  New 'line' coverage: 324
+  New 'line' coverage: 331
+  New 'line' coverage: 339
+  New 'line' coverage: 344

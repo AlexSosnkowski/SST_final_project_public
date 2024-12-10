@@ -1,0 +1,13 @@
+diff id:001190,src:001187,time:3850778,execs:692347,op:havoc,rep:1,+cov -> id:001191,src:001187,time:3850847,execs:692357,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_lha.c
+  New 'line' coverage: 370
+  New 'line' coverage: 371
+  New 'line' coverage: 373
+  New 'line' coverage: 375
+  New 'line' coverage: 376
+  New 'line' coverage: 378
+  New 'line' coverage: 380
+  New 'line' coverage: 381
+  New 'line' coverage: 382
+  New 'line' coverage: 384
+  New 'line' coverage: 386

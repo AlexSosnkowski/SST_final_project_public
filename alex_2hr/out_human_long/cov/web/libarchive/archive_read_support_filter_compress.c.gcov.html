@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - libarchive/archive_read_support_filter_compress.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">libarchive</a> - archive_read_support_filter_compress.c<span style="font-size: 80%;"> (source / <a href="archive_read_support_filter_compress.c.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">8.4&nbsp;%</td>
+            <td class="headerCovTableEntry">154</td>
+            <td class="headerCovTableEntry">13</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2024-12-10 23:12:38</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">25.0&nbsp;%</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">2</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : /*-</span>
+<span id="L2"><span class="lineNum">       2</span>              :  * Copyright (c) 2003-2007 Tim Kientzle</span>
+<span id="L3"><span class="lineNum">       3</span>              :  * All rights reserved.</span>
+<span id="L4"><span class="lineNum">       4</span>              :  *</span>
+<span id="L5"><span class="lineNum">       5</span>              :  * Redistribution and use in source and binary forms, with or without</span>
+<span id="L6"><span class="lineNum">       6</span>              :  * modification, are permitted provided that the following conditions</span>
+<span id="L7"><span class="lineNum">       7</span>              :  * are met:</span>
+<span id="L8"><span class="lineNum">       8</span>              :  * 1. Redistributions of source code must retain the above copyright</span>
+<span id="L9"><span class="lineNum">       9</span>              :  *    notice, this list of conditions and the following disclaimer.</span>
+<span id="L10"><span class="lineNum">      10</span>              :  * 2. Redistributions in binary form must reproduce the above copyright</span>
+<span id="L11"><span class="lineNum">      11</span>              :  *    notice, this list of conditions and the following disclaimer in the</span>
+<span id="L12"><span class="lineNum">      12</span>              :  *    documentation and/or other materials provided with the distribution.</span>
+<span id="L13"><span class="lineNum">      13</span>              :  *</span>
+<span id="L14"><span class="lineNum">      14</span>              :  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR(S) ``AS IS'' AND ANY EXPRESS OR</span>
+<span id="L15"><span class="lineNum">      15</span>              :  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES</span>
+<span id="L16"><span class="lineNum">      16</span>              :  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.</span>
+<span id="L17"><span class="lineNum">      17</span>              :  * IN NO EVENT SHALL THE AUTHOR(S) BE LIABLE FOR ANY DIRECT, INDIRECT,</span>
+<span id="L18"><span class="lineNum">      18</span>              :  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT</span>
+<span id="L19"><span class="lineNum">      19</span>              :  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span id="L20"><span class="lineNum">      20</span>              :  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span id="L21"><span class="lineNum">      21</span>              :  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span id="L22"><span class="lineNum">      22</span>              :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF</span>
+<span id="L23"><span class="lineNum">      23</span>              :  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span id="L24"><span class="lineNum">      24</span>              :  */</span>
+<span id="L25"><span class="lineNum">      25</span>              : </span>
+<span id="L26"><span class="lineNum">      26</span>              : /*</span>
+<span id="L27"><span class="lineNum">      27</span>              :  * This code borrows heavily from &quot;compress&quot; source code, which is</span>
+<span id="L28"><span class="lineNum">      28</span>              :  * protected by the following copyright.  (Clause 3 dropped by request</span>
+<span id="L29"><span class="lineNum">      29</span>              :  * of the Regents.)</span>
+<span id="L30"><span class="lineNum">      30</span>              :  */</span>
+<span id="L31"><span class="lineNum">      31</span>              : </span>
+<span id="L32"><span class="lineNum">      32</span>              : /*-</span>
+<span id="L33"><span class="lineNum">      33</span>              :  * Copyright (c) 1985, 1986, 1992, 1993</span>
+<span id="L34"><span class="lineNum">      34</span>              :  *      The Regents of the University of California.  All rights reserved.</span>
+<span id="L35"><span class="lineNum">      35</span>              :  *</span>
+<span id="L36"><span class="lineNum">      36</span>              :  * This code is derived from software contributed to Berkeley by</span>
+<span id="L37"><span class="lineNum">      37</span>              :  * Diomidis Spinellis and James A. Woods, derived from original</span>
+<span id="L38"><span class="lineNum">      38</span>              :  * work by Spencer Thomas and Joseph Orost.</span>
+<span id="L39"><span class="lineNum">      39</span>              :  *</span>
+<span id="L40"><span class="lineNum">      40</span>              :  * Redistribution and use in source and binary forms, with or without</span>
+<span id="L41"><span class="lineNum">      41</span>              :  * modification, are permitted provided that the following conditions</span>
+<span id="L42"><span class="lineNum">      42</span>              :  * are met:</span>
+<span id="L43"><span class="lineNum">      43</span>              :  * 1. Redistributions of source code must retain the above copyright</span>
+<span id="L44"><span class="lineNum">      44</span>              :  *    notice, this list of conditions and the following disclaimer.</span>
+<span id="L45"><span class="lineNum">      45</span>              :  * 2. Redistributions in binary form must reproduce the above copyright</span>
+<span id="L46"><span class="lineNum">      46</span>              :  *    notice, this list of conditions and the following disclaimer in the</span>
+<span id="L47"><span class="lineNum">      47</span>              :  *    documentation and/or other materials provided with the distribution.</span>
+<span id="L48"><span class="lineNum">      48</span>              :  * 4. Neither the name of the University nor the names of its contributors</span>
+<span id="L49"><span class="lineNum">      49</span>              :  *    may be used to endorse or promote products derived from this software</span>
+<span id="L50"><span class="lineNum">      50</span>              :  *    without specific prior written permission.</span>
+<span id="L51"><span class="lineNum">      51</span>              :  *</span>
+<span id="L52"><span class="lineNum">      52</span>              :  * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND</span>
+<span id="L53"><span class="lineNum">      53</span>              :  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span>
+<span id="L54"><span class="lineNum">      54</span>              :  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</span>
+<span id="L55"><span class="lineNum">      55</span>              :  * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE</span>
+<span id="L56"><span class="lineNum">      56</span>              :  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL</span>
+<span id="L57"><span class="lineNum">      57</span>              :  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS</span>
+<span id="L58"><span class="lineNum">      58</span>              :  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)</span>
+<span id="L59"><span class="lineNum">      59</span>              :  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</span>
+<span id="L60"><span class="lineNum">      60</span>              :  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY</span>
+<span id="L61"><span class="lineNum">      61</span>              :  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</span>
+<span id="L62"><span class="lineNum">      62</span>              :  * SUCH DAMAGE.</span>
+<span id="L63"><span class="lineNum">      63</span>              :  */</span>
+<span id="L64"><span class="lineNum">      64</span>              : </span>
+<span id="L65"><span class="lineNum">      65</span>              : </span>
+<span id="L66"><span class="lineNum">      66</span>              : #include &quot;archive_platform.h&quot;</span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              : #ifdef HAVE_ERRNO_H</span>
+<span id="L69"><span class="lineNum">      69</span>              : #include &lt;errno.h&gt;</span>
+<span id="L70"><span class="lineNum">      70</span>              : #endif</span>
+<span id="L71"><span class="lineNum">      71</span>              : #ifdef HAVE_STDLIB_H</span>
+<span id="L72"><span class="lineNum">      72</span>              : #include &lt;stdlib.h&gt;</span>
+<span id="L73"><span class="lineNum">      73</span>              : #endif</span>
+<span id="L74"><span class="lineNum">      74</span>              : #ifdef HAVE_STRING_H</span>
+<span id="L75"><span class="lineNum">      75</span>              : #include &lt;string.h&gt;</span>
+<span id="L76"><span class="lineNum">      76</span>              : #endif</span>
+<span id="L77"><span class="lineNum">      77</span>              : #ifdef HAVE_UNISTD_H</span>
+<span id="L78"><span class="lineNum">      78</span>              : #include &lt;unistd.h&gt;</span>
+<span id="L79"><span class="lineNum">      79</span>              : #endif</span>
+<span id="L80"><span class="lineNum">      80</span>              : </span>
+<span id="L81"><span class="lineNum">      81</span>              : #include &quot;archive.h&quot;</span>
+<span id="L82"><span class="lineNum">      82</span>              : #include &quot;archive_private.h&quot;</span>
+<span id="L83"><span class="lineNum">      83</span>              : #include &quot;archive_read_private.h&quot;</span>
+<span id="L84"><span class="lineNum">      84</span>              : </span>
+<span id="L85"><span class="lineNum">      85</span>              : /*</span>
+<span id="L86"><span class="lineNum">      86</span>              :  * Because LZW decompression is pretty simple, I've just implemented</span>
+<span id="L87"><span class="lineNum">      87</span>              :  * the whole decompressor here (cribbing from &quot;compress&quot; source code,</span>
+<span id="L88"><span class="lineNum">      88</span>              :  * of course), rather than relying on an external library.  I have</span>
+<span id="L89"><span class="lineNum">      89</span>              :  * made an effort to clarify and simplify the algorithm, so the</span>
+<span id="L90"><span class="lineNum">      90</span>              :  * names and structure here don't exactly match those used by compress.</span>
+<span id="L91"><span class="lineNum">      91</span>              :  */</span>
+<span id="L92"><span class="lineNum">      92</span>              : </span>
+<span id="L93"><span class="lineNum">      93</span>              : struct private_data {</span>
+<span id="L94"><span class="lineNum">      94</span>              :         /* Input variables. */</span>
+<span id="L95"><span class="lineNum">      95</span>              :         const unsigned char     *next_in;</span>
+<span id="L96"><span class="lineNum">      96</span>              :         size_t                   avail_in;</span>
+<span id="L97"><span class="lineNum">      97</span>              :         size_t                   consume_unnotified;</span>
+<span id="L98"><span class="lineNum">      98</span>              :         int                      bit_buffer;</span>
+<span id="L99"><span class="lineNum">      99</span>              :         int                      bits_avail;</span>
+<span id="L100"><span class="lineNum">     100</span>              :         size_t                   bytes_in_section;</span>
+<span id="L101"><span class="lineNum">     101</span>              : </span>
+<span id="L102"><span class="lineNum">     102</span>              :         /* Output variables. */</span>
+<span id="L103"><span class="lineNum">     103</span>              :         size_t                   out_block_size;</span>
+<span id="L104"><span class="lineNum">     104</span>              :         void                    *out_block;</span>
+<span id="L105"><span class="lineNum">     105</span>              : </span>
+<span id="L106"><span class="lineNum">     106</span>              :         /* Decompression status variables. */</span>
+<span id="L107"><span class="lineNum">     107</span>              :         int                      use_reset_code;</span>
+<span id="L108"><span class="lineNum">     108</span>              :         int                      end_of_stream; /* EOF status. */</span>
+<span id="L109"><span class="lineNum">     109</span>              :         int                      maxcode;       /* Largest code. */</span>
+<span id="L110"><span class="lineNum">     110</span>              :         int                      maxcode_bits;  /* Length of largest code. */</span>
+<span id="L111"><span class="lineNum">     111</span>              :         int                      section_end_code; /* When to increase bits. */</span>
+<span id="L112"><span class="lineNum">     112</span>              :         int                      bits;          /* Current code length. */</span>
+<span id="L113"><span class="lineNum">     113</span>              :         int                      oldcode;       /* Previous code. */</span>
+<span id="L114"><span class="lineNum">     114</span>              :         int                      finbyte;       /* Last byte of prev code. */</span>
+<span id="L115"><span class="lineNum">     115</span>              : </span>
+<span id="L116"><span class="lineNum">     116</span>              :         /* Dictionary. */</span>
+<span id="L117"><span class="lineNum">     117</span>              :         int                      free_ent;       /* Next dictionary entry. */</span>
+<span id="L118"><span class="lineNum">     118</span>              :         unsigned char            suffix[65536];</span>
+<span id="L119"><span class="lineNum">     119</span>              :         uint16_t                 prefix[65536];</span>
+<span id="L120"><span class="lineNum">     120</span>              : </span>
+<span id="L121"><span class="lineNum">     121</span>              :         /*</span>
+<span id="L122"><span class="lineNum">     122</span>              :          * Scratch area for expanding dictionary entries.  Note:</span>
+<span id="L123"><span class="lineNum">     123</span>              :          * &quot;worst&quot; case here comes from compressing /dev/zero: the</span>
+<span id="L124"><span class="lineNum">     124</span>              :          * last code in the dictionary will code a sequence of</span>
+<span id="L125"><span class="lineNum">     125</span>              :          * 65536-256 zero bytes.  Thus, we need stack space to expand</span>
+<span id="L126"><span class="lineNum">     126</span>              :          * a 65280-byte dictionary entry.  (Of course, 32640:1</span>
+<span id="L127"><span class="lineNum">     127</span>              :          * compression could also be considered the &quot;best&quot; case. ;-)</span>
+<span id="L128"><span class="lineNum">     128</span>              :          */</span>
+<span id="L129"><span class="lineNum">     129</span>              :         unsigned char           *stackp;</span>
+<span id="L130"><span class="lineNum">     130</span>              :         unsigned char            stack[65300];</span>
+<span id="L131"><span class="lineNum">     131</span>              : };</span>
+<span id="L132"><span class="lineNum">     132</span>              : </span>
+<span id="L133"><span class="lineNum">     133</span>              : static int      compress_bidder_bid(struct archive_read_filter_bidder *, struct archive_read_filter *);</span>
+<span id="L134"><span class="lineNum">     134</span>              : static int      compress_bidder_init(struct archive_read_filter *);</span>
+<span id="L135"><span class="lineNum">     135</span>              : </span>
+<span id="L136"><span class="lineNum">     136</span>              : static ssize_t  compress_filter_read(struct archive_read_filter *, const void **);</span>
+<span id="L137"><span class="lineNum">     137</span>              : static int      compress_filter_close(struct archive_read_filter *);</span>
+<span id="L138"><span class="lineNum">     138</span>              : </span>
+<span id="L139"><span class="lineNum">     139</span>              : static int      getbits(struct archive_read_filter *, int n);</span>
+<span id="L140"><span class="lineNum">     140</span>              : static int      next_code(struct archive_read_filter *);</span>
+<span id="L141"><span class="lineNum">     141</span>              : </span>
+<span id="L142"><span class="lineNum">     142</span>              : #if ARCHIVE_VERSION_NUMBER &lt; 4000000</span>
+<span id="L143"><span class="lineNum">     143</span>              : /* Deprecated; remove in libarchive 4.0 */</span>
+<span id="L144"><span class="lineNum">     144</span>              : int</span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaUNC tlaBgUNC">           0 : archive_read_support_compression_compress(struct archive *a)</span></span>
+<span id="L146"><span class="lineNum">     146</span>              : {</span>
+<span id="L147"><span class="lineNum">     147</span> <span class="tlaUNC">           0 :         return archive_read_support_filter_compress(a);</span></span>
+<span id="L148"><span class="lineNum">     148</span>              : }</span>
+<span id="L149"><span class="lineNum">     149</span>              : #endif</span>
+<span id="L150"><span class="lineNum">     150</span>              : </span>
+<span id="L151"><span class="lineNum">     151</span>              : static const struct archive_read_filter_bidder_vtable</span>
+<span id="L152"><span class="lineNum">     152</span>              : compress_bidder_vtable = {</span>
+<span id="L153"><span class="lineNum">     153</span>              :         .bid = compress_bidder_bid,</span>
+<span id="L154"><span class="lineNum">     154</span>              :         .init = compress_bidder_init,</span>
+<span id="L155"><span class="lineNum">     155</span>              : };</span>
+<span id="L156"><span class="lineNum">     156</span>              : </span>
+<span id="L157"><span class="lineNum">     157</span>              : int</span>
+<span id="L158"><span class="lineNum">     158</span> <span class="tlaGNC tlaBgGNC">        1437 : archive_read_support_filter_compress(struct archive *_a)</span></span>
+<span id="L159"><span class="lineNum">     159</span>              : {</span>
+<span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC">        1437 :         struct archive_read *a = (struct archive_read *)_a;</span></span>
+<span id="L161"><span class="lineNum">     161</span>              : </span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">        1437 :         return __archive_read_register_bidder(a, NULL, &quot;compress (.Z)&quot;,</span></span>
+<span id="L163"><span class="lineNum">     163</span>              :                         &amp;compress_bidder_vtable);</span>
+<span id="L164"><span class="lineNum">     164</span>              : }</span>
+<span id="L165"><span class="lineNum">     165</span>              : </span>
+<span id="L166"><span class="lineNum">     166</span>              : /*</span>
+<span id="L167"><span class="lineNum">     167</span>              :  * Test whether we can handle this data.</span>
+<span id="L168"><span class="lineNum">     168</span>              :  * This logic returns zero if any part of the signature fails.</span>
+<span id="L169"><span class="lineNum">     169</span>              :  */</span>
+<span id="L170"><span class="lineNum">     170</span>              : static int</span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">        1451 : compress_bidder_bid(struct archive_read_filter_bidder *self,</span></span>
+<span id="L172"><span class="lineNum">     172</span>              :     struct archive_read_filter *filter)</span>
+<span id="L173"><span class="lineNum">     173</span>              : {</span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">        1451 :         const unsigned char *buffer;</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">        1451 :         ssize_t avail;</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">        1451 :         int bits_checked;</span></span>
+<span id="L177"><span class="lineNum">     177</span>              : </span>
+<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">        1451 :         (void)self; /* UNUSED */</span></span>
+<span id="L179"><span class="lineNum">     179</span>              : </span>
+<span id="L180"><span class="lineNum">     180</span>              :         /* Shortest valid compress file is 3 bytes. */</span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">        1451 :         buffer = __archive_read_filter_ahead(filter, 3, &amp;avail);</span></span>
+<span id="L182"><span class="lineNum">     182</span>              : </span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">        1451 :         if (buffer == NULL)</span></span>
+<span id="L184"><span class="lineNum">     184</span>              :                 return (0);</span>
+<span id="L185"><span class="lineNum">     185</span>              : </span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">        1434 :         bits_checked = 0;</span></span>
+<span id="L187"><span class="lineNum">     187</span>              :         /* First two bytes are the magic value */</span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">        1434 :         if (buffer[0] != 0x1F || buffer[1] != 0x9D)</span></span>
+<span id="L189"><span class="lineNum">     189</span>              :                 return (0);</span>
+<span id="L190"><span class="lineNum">     190</span>              :         /* Third byte holds compression parameters. */</span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC tlaBgUNC">           0 :         if (buffer[2] &amp; 0x20) /* Reserved bit, must be zero. */</span></span>
+<span id="L192"><span class="lineNum">     192</span>              :                 return (0);</span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC">           0 :         if (buffer[2] &amp; 0x40) /* Reserved bit, must be zero. */</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaUNC">           0 :                 return (0);</span></span>
+<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC tlaBgGNC">        1451 :         bits_checked += 18;</span></span>
+<span id="L196"><span class="lineNum">     196</span>              : </span>
+<span id="L197"><span class="lineNum">     197</span>              :         return (bits_checked);</span>
+<span id="L198"><span class="lineNum">     198</span>              : }</span>
+<span id="L199"><span class="lineNum">     199</span>              : </span>
+<span id="L200"><span class="lineNum">     200</span>              : static const struct archive_read_filter_vtable</span>
+<span id="L201"><span class="lineNum">     201</span>              : compress_reader_vtable = {</span>
+<span id="L202"><span class="lineNum">     202</span>              :         .read = compress_filter_read,</span>
+<span id="L203"><span class="lineNum">     203</span>              :         .close = compress_filter_close,</span>
+<span id="L204"><span class="lineNum">     204</span>              : };</span>
+<span id="L205"><span class="lineNum">     205</span>              : </span>
+<span id="L206"><span class="lineNum">     206</span>              : /*</span>
+<span id="L207"><span class="lineNum">     207</span>              :  * Setup the callbacks.</span>
+<span id="L208"><span class="lineNum">     208</span>              :  */</span>
+<span id="L209"><span class="lineNum">     209</span>              : static int</span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaUNC tlaBgUNC">           0 : compress_bidder_init(struct archive_read_filter *self)</span></span>
+<span id="L211"><span class="lineNum">     211</span>              : {</span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC">           0 :         struct private_data *state;</span></span>
+<span id="L213"><span class="lineNum">     213</span> <span class="tlaUNC">           0 :         static const size_t out_block_size = 64 * 1024;</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaUNC">           0 :         void *out_block;</span></span>
+<span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC">           0 :         int code;</span></span>
+<span id="L216"><span class="lineNum">     216</span>              : </span>
+<span id="L217"><span class="lineNum">     217</span> <span class="tlaUNC">           0 :         self-&gt;code = ARCHIVE_FILTER_COMPRESS;</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaUNC">           0 :         self-&gt;name = &quot;compress (.Z)&quot;;</span></span>
+<span id="L219"><span class="lineNum">     219</span>              : </span>
+<span id="L220"><span class="lineNum">     220</span> <span class="tlaUNC">           0 :         state = calloc(1, sizeof(*state));</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaUNC">           0 :         out_block = malloc(out_block_size);</span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaUNC">           0 :         if (state == NULL || out_block == NULL) {</span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaUNC">           0 :                 free(out_block);</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaUNC">           0 :                 free(state);</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC">           0 :                 archive_set_error(&amp;self-&gt;archive-&gt;archive, ENOMEM,</span></span>
+<span id="L226"><span class="lineNum">     226</span>              :                     &quot;Can't allocate data for %s decompression&quot;,</span>
+<span id="L227"><span class="lineNum">     227</span>              :                     self-&gt;name);</span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_FATAL);</span></span>
+<span id="L229"><span class="lineNum">     229</span>              :         }</span>
+<span id="L230"><span class="lineNum">     230</span>              : </span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaUNC">           0 :         self-&gt;data = state;</span></span>
+<span id="L232"><span class="lineNum">     232</span> <span class="tlaUNC">           0 :         state-&gt;out_block_size = out_block_size;</span></span>
+<span id="L233"><span class="lineNum">     233</span> <span class="tlaUNC">           0 :         state-&gt;out_block = out_block;</span></span>
+<span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC">           0 :         self-&gt;vtable = &amp;compress_reader_vtable;</span></span>
+<span id="L235"><span class="lineNum">     235</span>              : </span>
+<span id="L236"><span class="lineNum">     236</span>              :         /* XXX MOVE THE FOLLOWING OUT OF INIT() XXX */</span>
+<span id="L237"><span class="lineNum">     237</span>              : </span>
+<span id="L238"><span class="lineNum">     238</span> <span class="tlaUNC">           0 :         (void)getbits(self, 8); /* Skip first signature byte. */</span></span>
+<span id="L239"><span class="lineNum">     239</span> <span class="tlaUNC">           0 :         (void)getbits(self, 8); /* Skip second signature byte. */</span></span>
+<span id="L240"><span class="lineNum">     240</span>              : </span>
+<span id="L241"><span class="lineNum">     241</span>              :         /* Get compression parameters. */</span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaUNC">           0 :         code = getbits(self, 8);</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaUNC">           0 :         if ((code &amp; 0x1f) &gt; 16) {</span></span>
+<span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :                 archive_set_error(&amp;self-&gt;archive-&gt;archive, -1,</span></span>
+<span id="L245"><span class="lineNum">     245</span>              :                     &quot;Invalid compressed data&quot;);</span>
+<span id="L246"><span class="lineNum">     246</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_FATAL);</span></span>
+<span id="L247"><span class="lineNum">     247</span>              :         }</span>
+<span id="L248"><span class="lineNum">     248</span> <span class="tlaUNC">           0 :         state-&gt;maxcode_bits = code &amp; 0x1f;</span></span>
+<span id="L249"><span class="lineNum">     249</span> <span class="tlaUNC">           0 :         state-&gt;maxcode = (1 &lt;&lt; state-&gt;maxcode_bits);</span></span>
+<span id="L250"><span class="lineNum">     250</span> <span class="tlaUNC">           0 :         state-&gt;use_reset_code = code &amp; 0x80;</span></span>
+<span id="L251"><span class="lineNum">     251</span>              : </span>
+<span id="L252"><span class="lineNum">     252</span>              :         /* Initialize decompressor. */</span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC">           0 :         state-&gt;free_ent = 256;</span></span>
+<span id="L254"><span class="lineNum">     254</span> <span class="tlaUNC">           0 :         state-&gt;stackp = state-&gt;stack;</span></span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaUNC">           0 :         if (state-&gt;use_reset_code)</span></span>
+<span id="L256"><span class="lineNum">     256</span> <span class="tlaUNC">           0 :                 state-&gt;free_ent++;</span></span>
+<span id="L257"><span class="lineNum">     257</span> <span class="tlaUNC">           0 :         state-&gt;bits = 9;</span></span>
+<span id="L258"><span class="lineNum">     258</span> <span class="tlaUNC">           0 :         state-&gt;section_end_code = (1&lt;&lt;state-&gt;bits) - 1;</span></span>
+<span id="L259"><span class="lineNum">     259</span> <span class="tlaUNC">           0 :         state-&gt;oldcode = -1;</span></span>
+<span id="L260"><span class="lineNum">     260</span> <span class="tlaUNC">           0 :         for (code = 255; code &gt;= 0; code--) {</span></span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaUNC">           0 :                 state-&gt;prefix[code] = 0;</span></span>
+<span id="L262"><span class="lineNum">     262</span> <span class="tlaUNC">           0 :                 state-&gt;suffix[code] = code;</span></span>
+<span id="L263"><span class="lineNum">     263</span>              :         }</span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :         next_code(self);</span></span>
+<span id="L265"><span class="lineNum">     265</span>              : </span>
+<span id="L266"><span class="lineNum">     266</span> <span class="tlaUNC">           0 :         return (ARCHIVE_OK);</span></span>
+<span id="L267"><span class="lineNum">     267</span>              : }</span>
+<span id="L268"><span class="lineNum">     268</span>              : </span>
+<span id="L269"><span class="lineNum">     269</span>              : /*</span>
+<span id="L270"><span class="lineNum">     270</span>              :  * Return a block of data from the decompression buffer.  Decompress more</span>
+<span id="L271"><span class="lineNum">     271</span>              :  * as necessary.</span>
+<span id="L272"><span class="lineNum">     272</span>              :  */</span>
+<span id="L273"><span class="lineNum">     273</span>              : static ssize_t</span>
+<span id="L274"><span class="lineNum">     274</span> <span class="tlaUNC">           0 : compress_filter_read(struct archive_read_filter *self, const void **pblock)</span></span>
+<span id="L275"><span class="lineNum">     275</span>              : {</span>
+<span id="L276"><span class="lineNum">     276</span> <span class="tlaUNC">           0 :         struct private_data *state;</span></span>
+<span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC">           0 :         unsigned char *p, *start, *end;</span></span>
+<span id="L278"><span class="lineNum">     278</span> <span class="tlaUNC">           0 :         int ret;</span></span>
+<span id="L279"><span class="lineNum">     279</span>              : </span>
+<span id="L280"><span class="lineNum">     280</span> <span class="tlaUNC">           0 :         state = (struct private_data *)self-&gt;data;</span></span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaUNC">           0 :         if (state-&gt;end_of_stream) {</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaUNC">           0 :                 *pblock = NULL;</span></span>
+<span id="L283"><span class="lineNum">     283</span> <span class="tlaUNC">           0 :                 return (0);</span></span>
+<span id="L284"><span class="lineNum">     284</span>              :         }</span>
+<span id="L285"><span class="lineNum">     285</span> <span class="tlaUNC">           0 :         p = start = (unsigned char *)state-&gt;out_block;</span></span>
+<span id="L286"><span class="lineNum">     286</span> <span class="tlaUNC">           0 :         end = start + state-&gt;out_block_size;</span></span>
+<span id="L287"><span class="lineNum">     287</span>              : </span>
+<span id="L288"><span class="lineNum">     288</span> <span class="tlaUNC">           0 :         while (p &lt; end &amp;&amp; !state-&gt;end_of_stream) {</span></span>
+<span id="L289"><span class="lineNum">     289</span> <span class="tlaUNC">           0 :                 if (state-&gt;stackp &gt; state-&gt;stack) {</span></span>
+<span id="L290"><span class="lineNum">     290</span> <span class="tlaUNC">           0 :                         *p++ = *--state-&gt;stackp;</span></span>
+<span id="L291"><span class="lineNum">     291</span>              :                 } else {</span>
+<span id="L292"><span class="lineNum">     292</span> <span class="tlaUNC">           0 :                         ret = next_code(self);</span></span>
+<span id="L293"><span class="lineNum">     293</span> <span class="tlaUNC">           0 :                         if (ret == -1)</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaUNC">           0 :                                 state-&gt;end_of_stream = ret;</span></span>
+<span id="L295"><span class="lineNum">     295</span> <span class="tlaUNC">           0 :                         else if (ret != ARCHIVE_OK)</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaUNC">           0 :                                 return (ret);</span></span>
+<span id="L297"><span class="lineNum">     297</span>              :                 }</span>
+<span id="L298"><span class="lineNum">     298</span>              :         }</span>
+<span id="L299"><span class="lineNum">     299</span>              : </span>
+<span id="L300"><span class="lineNum">     300</span> <span class="tlaUNC">           0 :         *pblock = start;</span></span>
+<span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC">           0 :         return (p - start);</span></span>
+<span id="L302"><span class="lineNum">     302</span>              : }</span>
+<span id="L303"><span class="lineNum">     303</span>              : </span>
+<span id="L304"><span class="lineNum">     304</span>              : /*</span>
+<span id="L305"><span class="lineNum">     305</span>              :  * Close and release the filter.</span>
+<span id="L306"><span class="lineNum">     306</span>              :  */</span>
+<span id="L307"><span class="lineNum">     307</span>              : static int</span>
+<span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC">           0 : compress_filter_close(struct archive_read_filter *self)</span></span>
+<span id="L309"><span class="lineNum">     309</span>              : {</span>
+<span id="L310"><span class="lineNum">     310</span> <span class="tlaUNC">           0 :         struct private_data *state = (struct private_data *)self-&gt;data;</span></span>
+<span id="L311"><span class="lineNum">     311</span>              : </span>
+<span id="L312"><span class="lineNum">     312</span> <span class="tlaUNC">           0 :         free(state-&gt;out_block);</span></span>
+<span id="L313"><span class="lineNum">     313</span> <span class="tlaUNC">           0 :         free(state);</span></span>
+<span id="L314"><span class="lineNum">     314</span> <span class="tlaUNC">           0 :         return (ARCHIVE_OK);</span></span>
+<span id="L315"><span class="lineNum">     315</span>              : }</span>
+<span id="L316"><span class="lineNum">     316</span>              : </span>
+<span id="L317"><span class="lineNum">     317</span>              : /*</span>
+<span id="L318"><span class="lineNum">     318</span>              :  * Process the next code and fill the stack with the expansion</span>
+<span id="L319"><span class="lineNum">     319</span>              :  * of the code.  Returns ARCHIVE_FATAL if there is a fatal I/O or</span>
+<span id="L320"><span class="lineNum">     320</span>              :  * format error, ARCHIVE_EOF if we hit end of data, ARCHIVE_OK otherwise.</span>
+<span id="L321"><span class="lineNum">     321</span>              :  */</span>
+<span id="L322"><span class="lineNum">     322</span>              : static int</span>
+<span id="L323"><span class="lineNum">     323</span> <span class="tlaUNC">           0 : next_code(struct archive_read_filter *self)</span></span>
+<span id="L324"><span class="lineNum">     324</span>              : {</span>
+<span id="L325"><span class="lineNum">     325</span> <span class="tlaUNC">           0 :         struct private_data *state = (struct private_data *)self-&gt;data;</span></span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaUNC">           0 :         int code, newcode;</span></span>
+<span id="L327"><span class="lineNum">     327</span>              : </span>
+<span id="L328"><span class="lineNum">     328</span> <span class="tlaUNC">           0 :         static int debug_buff[1024];</span></span>
+<span id="L329"><span class="lineNum">     329</span> <span class="tlaUNC">           0 :         static unsigned debug_index;</span></span>
+<span id="L330"><span class="lineNum">     330</span>              : </span>
+<span id="L331"><span class="lineNum">     331</span> <span class="tlaUNC">           0 :         code = newcode = getbits(self, state-&gt;bits);</span></span>
+<span id="L332"><span class="lineNum">     332</span> <span class="tlaUNC">           0 :         if (code &lt; 0)</span></span>
+<span id="L333"><span class="lineNum">     333</span>              :                 return (code);</span>
+<span id="L334"><span class="lineNum">     334</span>              : </span>
+<span id="L335"><span class="lineNum">     335</span> <span class="tlaUNC">           0 :         debug_buff[debug_index++] = code;</span></span>
+<span id="L336"><span class="lineNum">     336</span> <span class="tlaUNC">           0 :         if (debug_index &gt;= sizeof(debug_buff)/sizeof(debug_buff[0]))</span></span>
+<span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC">           0 :                 debug_index = 0;</span></span>
+<span id="L338"><span class="lineNum">     338</span>              : </span>
+<span id="L339"><span class="lineNum">     339</span>              :         /* If it's a reset code, reset the dictionary. */</span>
+<span id="L340"><span class="lineNum">     340</span> <span class="tlaUNC">           0 :         if ((code == 256) &amp;&amp; state-&gt;use_reset_code) {</span></span>
+<span id="L341"><span class="lineNum">     341</span>              :                 /*</span>
+<span id="L342"><span class="lineNum">     342</span>              :                  * The original 'compress' implementation blocked its</span>
+<span id="L343"><span class="lineNum">     343</span>              :                  * I/O in a manner that resulted in junk bytes being</span>
+<span id="L344"><span class="lineNum">     344</span>              :                  * inserted after every reset.  The next section skips</span>
+<span id="L345"><span class="lineNum">     345</span>              :                  * this junk.  (Yes, the number of *bytes* to skip is</span>
+<span id="L346"><span class="lineNum">     346</span>              :                  * a function of the current *bit* length.)</span>
+<span id="L347"><span class="lineNum">     347</span>              :                  */</span>
+<span id="L348"><span class="lineNum">     348</span> <span class="tlaUNC">           0 :                 int skip_bytes =  state-&gt;bits -</span></span>
+<span id="L349"><span class="lineNum">     349</span> <span class="tlaUNC">           0 :                     (state-&gt;bytes_in_section % state-&gt;bits);</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaUNC">           0 :                 skip_bytes %= state-&gt;bits;</span></span>
+<span id="L351"><span class="lineNum">     351</span> <span class="tlaUNC">           0 :                 state-&gt;bits_avail = 0; /* Discard rest of this byte. */</span></span>
+<span id="L352"><span class="lineNum">     352</span> <span class="tlaUNC">           0 :                 while (skip_bytes-- &gt; 0) {</span></span>
+<span id="L353"><span class="lineNum">     353</span> <span class="tlaUNC">           0 :                         code = getbits(self, 8);</span></span>
+<span id="L354"><span class="lineNum">     354</span> <span class="tlaUNC">           0 :                         if (code &lt; 0)</span></span>
+<span id="L355"><span class="lineNum">     355</span> <span class="tlaUNC">           0 :                                 return (code);</span></span>
+<span id="L356"><span class="lineNum">     356</span>              :                 }</span>
+<span id="L357"><span class="lineNum">     357</span>              :                 /* Now, actually do the reset. */</span>
+<span id="L358"><span class="lineNum">     358</span> <span class="tlaUNC">           0 :                 state-&gt;bytes_in_section = 0;</span></span>
+<span id="L359"><span class="lineNum">     359</span> <span class="tlaUNC">           0 :                 state-&gt;bits = 9;</span></span>
+<span id="L360"><span class="lineNum">     360</span> <span class="tlaUNC">           0 :                 state-&gt;section_end_code = (1 &lt;&lt; state-&gt;bits) - 1;</span></span>
+<span id="L361"><span class="lineNum">     361</span> <span class="tlaUNC">           0 :                 state-&gt;free_ent = 257;</span></span>
+<span id="L362"><span class="lineNum">     362</span> <span class="tlaUNC">           0 :                 state-&gt;oldcode = -1;</span></span>
+<span id="L363"><span class="lineNum">     363</span> <span class="tlaUNC">           0 :                 return (next_code(self));</span></span>
+<span id="L364"><span class="lineNum">     364</span>              :         }</span>
+<span id="L365"><span class="lineNum">     365</span>              : </span>
+<span id="L366"><span class="lineNum">     366</span> <span class="tlaUNC">           0 :         if (code &gt; state-&gt;free_ent</span></span>
+<span id="L367"><span class="lineNum">     367</span> <span class="tlaUNC">           0 :             || (code == state-&gt;free_ent &amp;&amp; state-&gt;oldcode &lt; 0)) {</span></span>
+<span id="L368"><span class="lineNum">     368</span>              :                 /* An invalid code is a fatal error. */</span>
+<span id="L369"><span class="lineNum">     369</span> <span class="tlaUNC">           0 :                 archive_set_error(&amp;(self-&gt;archive-&gt;archive), -1,</span></span>
+<span id="L370"><span class="lineNum">     370</span>              :                     &quot;Invalid compressed data&quot;);</span>
+<span id="L371"><span class="lineNum">     371</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_FATAL);</span></span>
+<span id="L372"><span class="lineNum">     372</span>              :         }</span>
+<span id="L373"><span class="lineNum">     373</span>              : </span>
+<span id="L374"><span class="lineNum">     374</span>              :         /* Special case for KwKwK string. */</span>
+<span id="L375"><span class="lineNum">     375</span> <span class="tlaUNC">           0 :         if (code &gt;= state-&gt;free_ent) {</span></span>
+<span id="L376"><span class="lineNum">     376</span> <span class="tlaUNC">           0 :                 *state-&gt;stackp++ = state-&gt;finbyte;</span></span>
+<span id="L377"><span class="lineNum">     377</span> <span class="tlaUNC">           0 :                 code = state-&gt;oldcode;</span></span>
+<span id="L378"><span class="lineNum">     378</span>              :         }</span>
+<span id="L379"><span class="lineNum">     379</span>              : </span>
+<span id="L380"><span class="lineNum">     380</span>              :         /* Generate output characters in reverse order. */</span>
+<span id="L381"><span class="lineNum">     381</span> <span class="tlaUNC">           0 :         while (code &gt;= 256) {</span></span>
+<span id="L382"><span class="lineNum">     382</span> <span class="tlaUNC">           0 :                 *state-&gt;stackp++ = state-&gt;suffix[code];</span></span>
+<span id="L383"><span class="lineNum">     383</span> <span class="tlaUNC">           0 :                 code = state-&gt;prefix[code];</span></span>
+<span id="L384"><span class="lineNum">     384</span>              :         }</span>
+<span id="L385"><span class="lineNum">     385</span> <span class="tlaUNC">           0 :         *state-&gt;stackp++ = state-&gt;finbyte = code;</span></span>
+<span id="L386"><span class="lineNum">     386</span>              : </span>
+<span id="L387"><span class="lineNum">     387</span>              :         /* Generate the new entry. */</span>
+<span id="L388"><span class="lineNum">     388</span> <span class="tlaUNC">           0 :         code = state-&gt;free_ent;</span></span>
+<span id="L389"><span class="lineNum">     389</span> <span class="tlaUNC">           0 :         if (code &lt; state-&gt;maxcode &amp;&amp; state-&gt;oldcode &gt;= 0) {</span></span>
+<span id="L390"><span class="lineNum">     390</span> <span class="tlaUNC">           0 :                 state-&gt;prefix[code] = state-&gt;oldcode;</span></span>
+<span id="L391"><span class="lineNum">     391</span> <span class="tlaUNC">           0 :                 state-&gt;suffix[code] = state-&gt;finbyte;</span></span>
+<span id="L392"><span class="lineNum">     392</span> <span class="tlaUNC">           0 :                 ++state-&gt;free_ent;</span></span>
+<span id="L393"><span class="lineNum">     393</span>              :         }</span>
+<span id="L394"><span class="lineNum">     394</span> <span class="tlaUNC">           0 :         if (state-&gt;free_ent &gt; state-&gt;section_end_code) {</span></span>
+<span id="L395"><span class="lineNum">     395</span> <span class="tlaUNC">           0 :                 state-&gt;bits++;</span></span>
+<span id="L396"><span class="lineNum">     396</span> <span class="tlaUNC">           0 :                 state-&gt;bytes_in_section = 0;</span></span>
+<span id="L397"><span class="lineNum">     397</span> <span class="tlaUNC">           0 :                 if (state-&gt;bits == state-&gt;maxcode_bits)</span></span>
+<span id="L398"><span class="lineNum">     398</span> <span class="tlaUNC">           0 :                         state-&gt;section_end_code = state-&gt;maxcode;</span></span>
+<span id="L399"><span class="lineNum">     399</span>              :                 else</span>
+<span id="L400"><span class="lineNum">     400</span> <span class="tlaUNC">           0 :                         state-&gt;section_end_code = (1 &lt;&lt; state-&gt;bits) - 1;</span></span>
+<span id="L401"><span class="lineNum">     401</span>              :         }</span>
+<span id="L402"><span class="lineNum">     402</span>              : </span>
+<span id="L403"><span class="lineNum">     403</span>              :         /* Remember previous code. */</span>
+<span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC">           0 :         state-&gt;oldcode = newcode;</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaUNC">           0 :         return (ARCHIVE_OK);</span></span>
+<span id="L406"><span class="lineNum">     406</span>              : }</span>
+<span id="L407"><span class="lineNum">     407</span>              : </span>
+<span id="L408"><span class="lineNum">     408</span>              : /*</span>
+<span id="L409"><span class="lineNum">     409</span>              :  * Return next 'n' bits from stream.</span>
+<span id="L410"><span class="lineNum">     410</span>              :  *</span>
+<span id="L411"><span class="lineNum">     411</span>              :  * -1 indicates end of available data.</span>
+<span id="L412"><span class="lineNum">     412</span>              :  */</span>
+<span id="L413"><span class="lineNum">     413</span>              : static int</span>
+<span id="L414"><span class="lineNum">     414</span> <span class="tlaUNC">           0 : getbits(struct archive_read_filter *self, int n)</span></span>
+<span id="L415"><span class="lineNum">     415</span>              : {</span>
+<span id="L416"><span class="lineNum">     416</span> <span class="tlaUNC">           0 :         struct private_data *state = (struct private_data *)self-&gt;data;</span></span>
+<span id="L417"><span class="lineNum">     417</span> <span class="tlaUNC">           0 :         int code;</span></span>
+<span id="L418"><span class="lineNum">     418</span> <span class="tlaUNC">           0 :         ssize_t ret;</span></span>
+<span id="L419"><span class="lineNum">     419</span> <span class="tlaUNC">           0 :         static const int mask[] = {</span></span>
+<span id="L420"><span class="lineNum">     420</span>              :                 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x3f, 0x7f, 0xff,</span>
+<span id="L421"><span class="lineNum">     421</span>              :                 0x1ff, 0x3ff, 0x7ff, 0xfff, 0x1fff, 0x3fff, 0x7fff, 0xffff</span>
+<span id="L422"><span class="lineNum">     422</span>              :         };</span>
+<span id="L423"><span class="lineNum">     423</span>              : </span>
+<span id="L424"><span class="lineNum">     424</span> <span class="tlaUNC">           0 :         while (state-&gt;bits_avail &lt; n) {</span></span>
+<span id="L425"><span class="lineNum">     425</span> <span class="tlaUNC">           0 :                 if (state-&gt;avail_in &lt;= 0) {</span></span>
+<span id="L426"><span class="lineNum">     426</span> <span class="tlaUNC">           0 :                         if (state-&gt;consume_unnotified) {</span></span>
+<span id="L427"><span class="lineNum">     427</span> <span class="tlaUNC">           0 :                                 __archive_read_filter_consume(self-&gt;upstream,</span></span>
+<span id="L428"><span class="lineNum">     428</span>              :                                         state-&gt;consume_unnotified);</span>
+<span id="L429"><span class="lineNum">     429</span> <span class="tlaUNC">           0 :                                 state-&gt;consume_unnotified = 0;</span></span>
+<span id="L430"><span class="lineNum">     430</span>              :                         }</span>
+<span id="L431"><span class="lineNum">     431</span> <span class="tlaUNC">           0 :                         state-&gt;next_in</span></span>
+<span id="L432"><span class="lineNum">     432</span> <span class="tlaUNC">           0 :                             = __archive_read_filter_ahead(self-&gt;upstream,</span></span>
+<span id="L433"><span class="lineNum">     433</span>              :                                 1, &amp;ret);</span>
+<span id="L434"><span class="lineNum">     434</span> <span class="tlaUNC">           0 :                         if (ret == 0)</span></span>
+<span id="L435"><span class="lineNum">     435</span>              :                                 return (-1);</span>
+<span id="L436"><span class="lineNum">     436</span> <span class="tlaUNC">           0 :                         if (ret &lt; 0 || state-&gt;next_in == NULL)</span></span>
+<span id="L437"><span class="lineNum">     437</span>              :                                 return (ARCHIVE_FATAL);</span>
+<span id="L438"><span class="lineNum">     438</span> <span class="tlaUNC">           0 :                         state-&gt;consume_unnotified = state-&gt;avail_in = ret;</span></span>
+<span id="L439"><span class="lineNum">     439</span>              :                 }</span>
+<span id="L440"><span class="lineNum">     440</span> <span class="tlaUNC">           0 :                 state-&gt;bit_buffer |= *state-&gt;next_in++ &lt;&lt; state-&gt;bits_avail;</span></span>
+<span id="L441"><span class="lineNum">     441</span> <span class="tlaUNC">           0 :                 state-&gt;avail_in--;</span></span>
+<span id="L442"><span class="lineNum">     442</span> <span class="tlaUNC">           0 :                 state-&gt;bits_avail += 8;</span></span>
+<span id="L443"><span class="lineNum">     443</span> <span class="tlaUNC">           0 :                 state-&gt;bytes_in_section++;</span></span>
+<span id="L444"><span class="lineNum">     444</span>              :         }</span>
+<span id="L445"><span class="lineNum">     445</span>              : </span>
+<span id="L446"><span class="lineNum">     446</span> <span class="tlaUNC">           0 :         code = state-&gt;bit_buffer;</span></span>
+<span id="L447"><span class="lineNum">     447</span> <span class="tlaUNC">           0 :         state-&gt;bit_buffer &gt;&gt;= n;</span></span>
+<span id="L448"><span class="lineNum">     448</span> <span class="tlaUNC">           0 :         state-&gt;bits_avail -= n;</span></span>
+<span id="L449"><span class="lineNum">     449</span>              : </span>
+<span id="L450"><span class="lineNum">     450</span> <span class="tlaUNC">           0 :         return (code &amp; mask[n]);</span></span>
+<span id="L451"><span class="lineNum">     451</span>              : }</span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

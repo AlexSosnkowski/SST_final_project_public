@@ -1,0 +1,30 @@
+diff id:000571,src:000357+000526,time:657346,execs:115610,op:splice,rep:8 -> id:000572,src:000357+000526,time:657478,execs:115632,op:splice,rep:1,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'function' coverage: add_option()
+  New 'function' coverage: remove_option()
+  New 'line' coverage: 1015
+  New 'line' coverage: 1017
+  New 'line' coverage: 1018
+  New 'line' coverage: 1019
+  New 'line' coverage: 1020
+  New 'line' coverage: 1021
+  New 'line' coverage: 1025
+  New 'line' coverage: 1026
+  New 'line' coverage: 1027
+  New 'line' coverage: 239
+  New 'line' coverage: 240
+  New 'line' coverage: 241
+  New 'line' coverage: 812
+  New 'line' coverage: 815
+  New 'line' coverage: 817
+  New 'line' coverage: 821
+  New 'line' coverage: 826
+  New 'line' coverage: 827
+  New 'line' coverage: 828
+  New 'line' coverage: 829
+  New 'line' coverage: 830
+  New 'line' coverage: 834
+  New 'line' coverage: 836
+  New 'line' coverage: 838
+  New 'line' coverage: 839
+  New 'line' coverage: 845

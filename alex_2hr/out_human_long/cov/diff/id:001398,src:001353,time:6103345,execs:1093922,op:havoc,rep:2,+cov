@@ -1,0 +1,36 @@
+diff id:001397,src:001004+000327,time:6042765,execs:1083329,op:splice,rep:4 -> id:001398,src:001353,time:6103345,execs:1093922,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_pax.c
+  New 'function' coverage: add_pax_attr_time()
+  New 'line' coverage: 1220
+  New 'line' coverage: 1222
+  New 'line' coverage: 1615
+  New 'line' coverage: 1630
+  New 'line' coverage: 1632
+  New 'line' coverage: 1652
+  New 'line' coverage: 1653
+  New 'line' coverage: 241
+  New 'line' coverage: 244
+  New 'line' coverage: 245
+  New 'line' coverage: 250
+  New 'line' coverage: 252
+  New 'line' coverage: 253
+  New 'line' coverage: 256
+  New 'line' coverage: 257
+  New 'line' coverage: 258
+  New 'line' coverage: 262
+  New 'line' coverage: 271
+  New 'line' coverage: 273
+  New 'line' coverage: 274
+  New 'line' coverage: 281
+  New 'line' coverage: 282
+  New 'line' coverage: 290
+  New 'line' coverage: 310
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_ustar.c
+  New 'line' coverage: 665
+  New 'line' coverage: 672
+  New 'line' coverage: 674
+  New 'line' coverage: 675
+  New 'line' coverage: 676
+  New 'line' coverage: 677
+  New 'line' coverage: 679
+  New 'line' coverage: 680

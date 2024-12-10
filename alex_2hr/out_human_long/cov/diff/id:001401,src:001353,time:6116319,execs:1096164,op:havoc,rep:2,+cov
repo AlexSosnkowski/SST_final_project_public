@@ -1,0 +1,12 @@
+diff id:001400,src:001353,time:6108702,execs:1094845,op:havoc,rep:1 -> id:001401,src:001353,time:6116319,execs:1096164,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_write.c
+  New 'line' coverage: 440
+  New 'line' coverage: 441
+  New 'line' coverage: 442
+  New 'line' coverage: 443
+  New 'line' coverage: 445
+  New 'line' coverage: 447
+  New 'line' coverage: 452
+  New 'line' coverage: 453
+  New 'line' coverage: 455
+  New 'line' coverage: 456

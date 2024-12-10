@@ -1,0 +1,26 @@
+diff id:000328,src:000284,time:528358,execs:92396,op:havoc,rep:16,+cov -> id:000329,src:000284,time:528521,execs:92423,op:havoc,rep:16,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'line' coverage: 1102
+  New 'line' coverage: 1104
+  New 'line' coverage: 1105
+  New 'line' coverage: 942
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string_sprintf.c
+  New 'function' coverage: append_uint()
+  New 'line' coverage: 115
+  New 'line' coverage: 117
+  New 'line' coverage: 118
+  New 'line' coverage: 119
+  New 'line' coverage: 122
+  New 'line' coverage: 123
+  New 'line' coverage: 124
+  New 'line' coverage: 127
+  New 'line' coverage: 170
+  New 'line' coverage: 172
+  New 'line' coverage: 173
+  New 'line' coverage: 179
+  New 'line' coverage: 181
+  New 'line' coverage: 53
+  New 'line' coverage: 55
+  New 'line' coverage: 56
+  New 'line' coverage: 58
+  New 'line' coverage: 59

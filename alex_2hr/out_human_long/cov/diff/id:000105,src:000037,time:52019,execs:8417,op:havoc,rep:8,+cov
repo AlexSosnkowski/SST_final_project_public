@@ -1,0 +1,12 @@
+diff id:000104,src:000037,time:51542,execs:8337,op:havoc,rep:7,+cov -> id:000105,src:000037,time:52019,execs:8417,op:havoc,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_entry.c
+  New 'function' coverage: archive_entry_set_ctime()
+  New 'line' coverage: 1125
+  New 'line' coverage: 1127
+  New 'line' coverage: 1128
+  New 'line' coverage: 1129
+  New 'line' coverage: 1130
+  New 'line' coverage: 1131
+  New 'line' coverage: 1132
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'line' coverage: 2908

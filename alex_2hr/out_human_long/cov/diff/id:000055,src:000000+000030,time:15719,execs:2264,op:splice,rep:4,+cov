@@ -1,0 +1,36 @@
+diff id:000054,src:000000+000030,time:15597,execs:2245,op:splice,rep:3,+cov -> id:000055,src:000000+000030,time:15719,execs:2264,op:splice,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'function' coverage: header_ustar()
+  New 'line' coverage: 1685
+  New 'line' coverage: 1688
+  New 'line' coverage: 1689
+  New 'line' coverage: 1690
+  New 'line' coverage: 1692
+  New 'line' coverage: 1695
+  New 'line' coverage: 1696
+  New 'line' coverage: 1697
+  New 'line' coverage: 1698
+  New 'line' coverage: 1699
+  New 'line' coverage: 1700
+  New 'line' coverage: 1706
+  New 'line' coverage: 1708
+  New 'line' coverage: 1714
+  New 'line' coverage: 1718
+  New 'line' coverage: 1719
+  New 'line' coverage: 1721
+  New 'line' coverage: 1725
+  New 'line' coverage: 1726
+  New 'line' coverage: 1727
+  New 'line' coverage: 1728
+  New 'line' coverage: 1735
+  New 'line' coverage: 1736
+  New 'line' coverage: 1737
+  New 'line' coverage: 1738
+  New 'line' coverage: 1746
+  New 'line' coverage: 1754
+  New 'line' coverage: 1757
+  New 'line' coverage: 1759
+  New 'line' coverage: 870
+  New 'line' coverage: 871
+  New 'line' coverage: 872
+  New 'line' coverage: 874

@@ -1,0 +1,3 @@
+diff id:000332,src:000284,time:528979,execs:92501,op:havoc,rep:14 -> id:000333,src:000284,time:529405,execs:92577,op:havoc,rep:1,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'line' coverage: 1072

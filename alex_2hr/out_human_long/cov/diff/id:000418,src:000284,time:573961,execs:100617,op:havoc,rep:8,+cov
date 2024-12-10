@@ -1,0 +1,42 @@
+diff id:000417,src:000284,time:572980,execs:100439,op:havoc,rep:14,+cov -> id:000418,src:000284,time:573961,execs:100617,op:havoc,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_rb.c
+  New 'function' coverage: __archive_rb_tree_find_node()
+  New 'function' coverage: __archive_rb_tree_insert_node()
+  New 'line' coverage: 103
+  New 'line' coverage: 105
+  New 'line' coverage: 106
+  New 'line' coverage: 108
+  New 'line' coverage: 109
+  New 'line' coverage: 110
+  New 'line' coverage: 111
+  New 'line' coverage: 157
+  New 'line' coverage: 160
+  New 'line' coverage: 161
+  New 'line' coverage: 162
+  New 'line' coverage: 163
+  New 'line' coverage: 165
+  New 'line' coverage: 174
+  New 'line' coverage: 175
+  New 'line' coverage: 180
+  New 'line' coverage: 196
+  New 'line' coverage: 197
+  New 'line' coverage: 198
+  New 'line' coverage: 199
+  New 'line' coverage: 200
+  New 'line' coverage: 209
+  New 'line' coverage: 210
+  New 'line' coverage: 211
+  New 'line' coverage: 216
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'function' coverage: mtree_cmp_key()
+  New 'line' coverage: 1195
+  New 'line' coverage: 1206
+  New 'line' coverage: 1207
+  New 'line' coverage: 1208
+  New 'line' coverage: 1209
+  New 'line' coverage: 1214
+  New 'line' coverage: 1953
+  New 'line' coverage: 256
+  New 'line' coverage: 258
+  New 'line' coverage: 260
+  New 'line' coverage: 992

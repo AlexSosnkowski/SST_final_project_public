@@ -1,0 +1,42 @@
+diff id:000987,src:000210,time:1913919,execs:342517,op:havoc,rep:1 -> id:000988,src:000210,time:1915494,execs:342804,op:havoc,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_entry.c
+  New 'line' coverage: 240
+  New 'line' coverage: 242
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_sparse.c
+  New 'function' coverage: archive_entry_sparse_add_entry()
+  New 'line' coverage: 44
+  New 'line' coverage: 45
+  New 'line' coverage: 46
+  New 'line' coverage: 52
+  New 'line' coverage: 55
+  New 'line' coverage: 57
+  New 'line' coverage: 60
+  New 'line' coverage: 61
+  New 'line' coverage: 64
+  New 'line' coverage: 79
+  New 'line' coverage: 83
+  New 'line' coverage: 84
+  New 'line' coverage: 85
+  New 'line' coverage: 87
+  New 'line' coverage: 88
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'function' coverage: gnu_sparse_old_parse()
+  New 'function' coverage: gnu_sparse_old_read()
+  New 'line' coverage: 2919
+  New 'line' coverage: 2982
+  New 'line' coverage: 2985
+  New 'line' coverage: 2986
+  New 'line' coverage: 2987
+  New 'line' coverage: 2992
+  New 'line' coverage: 2994
+  New 'line' coverage: 2996
+  New 'line' coverage: 3019
+  New 'line' coverage: 3022
+  New 'line' coverage: 3023
+  New 'line' coverage: 3024
+  New 'line' coverage: 3025
+  New 'line' coverage: 3028
+  New 'line' coverage: 3029
+  New 'line' coverage: 561
+  New 'line' coverage: 562
+  New 'line' coverage: 563

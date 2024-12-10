@@ -1,0 +1,27 @@
+diff id:001189,src:000561+001101,time:3838727,execs:690163,op:splice,rep:1 -> id:001190,src:001187,time:3850778,execs:692347,op:havoc,rep:1,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_cab.c
+  New 'line' coverage: 434
+  New 'line' coverage: 435
+  New 'line' coverage: 437
+  New 'line' coverage: 439
+  New 'line' coverage: 440
+  New 'line' coverage: 442
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar.c
+  New 'line' coverage: 809
+  New 'line' coverage: 810
+  New 'line' coverage: 811
+  New 'line' coverage: 813
+  New 'line' coverage: 814
+  New 'line' coverage: 815
+  New 'line' coverage: 816
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar5.c
+  New 'line' coverage: 1146
+  New 'line' coverage: 1147
+  New 'line' coverage: 1150
+  New 'line' coverage: 1152
+  New 'line' coverage: 1153
+  New 'line' coverage: 1154
+  New 'line' coverage: 1156
+  New 'line' coverage: 1157
+  New 'line' coverage: 1158
+  New 'line' coverage: 1159

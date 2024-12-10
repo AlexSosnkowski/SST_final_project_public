@@ -1,0 +1,6 @@
+diff id:000247,src:000065+000041,time:443467,execs:77637,op:splice,rep:4,+cov -> id:000248,src:000065+000038,time:444108,execs:77749,op:splice,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'line' coverage: 2912
+  New 'line' coverage: 2913
+  New 'line' coverage: 2914
+  New 'line' coverage: 2915

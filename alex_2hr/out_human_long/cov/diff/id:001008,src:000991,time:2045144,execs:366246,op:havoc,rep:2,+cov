@@ -1,0 +1,15 @@
+diff id:001007,src:000991,time:2043849,execs:366013,op:havoc,rep:1,+cov -> id:001008,src:000991,time:2045144,execs:366246,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_pax.c
+  New 'line' coverage: 1586
+  New 'line' coverage: 1587
+  New 'line' coverage: 1588
+  New 'line' coverage: 463
+  New 'line' coverage: 879
+  New 'line' coverage: 881
+  New 'line' coverage: 885
+  New 'line' coverage: 888
+  New 'line' coverage: 889
+  New 'line' coverage: 990
+  New 'line' coverage: 991
+  New 'line' coverage: 992
+  New 'line' coverage: 994

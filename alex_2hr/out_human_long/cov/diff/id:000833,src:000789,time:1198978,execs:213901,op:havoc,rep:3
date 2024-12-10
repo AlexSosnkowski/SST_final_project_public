@@ -1,0 +1,3 @@
+diff id:000832,src:000789,time:1198315,execs:213781,op:havoc,rep:3 -> id:000833,src:000789,time:1198978,execs:213901,op:havoc,rep:3
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_lha.c
+  New 'line' coverage: 339

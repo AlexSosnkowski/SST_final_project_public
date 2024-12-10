@@ -1,0 +1,16 @@
+diff id:000229,src:000065,time:411738,execs:72060,op:havoc,rep:3,+cov -> id:000230,src:000065,time:412829,execs:72248,op:havoc,rep:3,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_entry.c
+  New 'function' coverage: archive_entry_copy_pathname()
+  New 'line' coverage: 1282
+  New 'line' coverage: 1284
+  New 'line' coverage: 1285
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_pax.c
+  New 'line' coverage: 709
+  New 'line' coverage: 711
+  New 'line' coverage: 712
+  New 'line' coverage: 713
+  New 'line' coverage: 729
+  New 'line' coverage: 730
+  New 'line' coverage: 731
+  New 'line' coverage: 732
+  New 'line' coverage: 733

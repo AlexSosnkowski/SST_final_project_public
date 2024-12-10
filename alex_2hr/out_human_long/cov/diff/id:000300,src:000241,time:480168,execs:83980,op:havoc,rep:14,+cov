@@ -1,0 +1,19 @@
+diff id:000299,src:000241,time:479870,execs:83930,op:havoc,rep:12 -> id:000300,src:000241,time:480168,execs:83980,op:havoc,rep:14,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_xz.c
+  New 'line' coverage: 693
+  New 'line' coverage: 694
+  New 'line' coverage: 708
+  New 'line' coverage: 709
+  New 'line' coverage: 710
+  New 'line' coverage: 711
+  New 'line' coverage: 712
+  New 'line' coverage: 713
+  New 'line' coverage: 721
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_empty.c
+  New 'function' coverage: archive_read_format_empty_read_header()
+  New 'line' coverage: 73
+  New 'line' coverage: 76
+  New 'line' coverage: 77
+  New 'line' coverage: 79
+  New 'line' coverage: 80
+  New 'line' coverage: 82

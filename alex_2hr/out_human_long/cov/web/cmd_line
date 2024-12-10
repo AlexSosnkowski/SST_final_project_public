@@ -1,0 +1,1 @@
+genhtml --output-directory ../alex_2hr/out_human_long//cov/web ../alex_2hr/out_human_long//cov/lcov/trace.lcov_info_final

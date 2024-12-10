@@ -1,0 +1,3 @@
+diff id:001231,src:001187+000775,time:3894647,execs:700266,op:splice,rep:8 -> id:001232,src:001187+000775,time:3894895,execs:700309,op:splice,rep:3,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_cab.c
+  New 'line' coverage: 402

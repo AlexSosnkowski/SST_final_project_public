@@ -1,0 +1,3 @@
+diff id:000096,src:000037,time:44822,execs:7202,op:havoc,rep:3,+cov -> id:000097,src:000037,time:44903,execs:7214,op:havoc,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_xz.c
+  New 'line' coverage: 272

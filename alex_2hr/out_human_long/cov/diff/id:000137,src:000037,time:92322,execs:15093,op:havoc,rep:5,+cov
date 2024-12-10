@@ -1,0 +1,9 @@
+diff id:000136,src:000037,time:90784,execs:14832,op:havoc,rep:4,+cov -> id:000137,src:000037,time:92322,execs:15093,op:havoc,rep:5,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'line' coverage: 1466
+  New 'line' coverage: 1467
+  New 'line' coverage: 1468
+  New 'line' coverage: 1469
+  New 'line' coverage: 1470
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_ustar.c
+  New 'line' coverage: 618

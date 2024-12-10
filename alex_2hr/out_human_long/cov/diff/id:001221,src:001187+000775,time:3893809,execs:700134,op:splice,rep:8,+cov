@@ -1,0 +1,11 @@
+diff id:001220,src:001187,time:3886402,execs:698781,op:havoc,rep:3 -> id:001221,src:001187+000775,time:3893809,execs:700134,op:splice,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_cab.c
+  New 'function' coverage: find_cab_magic()
+  New 'line' coverage: 387
+  New 'line' coverage: 389
+  New 'line' coverage: 444
+  New 'line' coverage: 445
+  New 'line' coverage: 446
+  New 'line' coverage: 447
+  New 'line' coverage: 449
+  New 'line' coverage: 451

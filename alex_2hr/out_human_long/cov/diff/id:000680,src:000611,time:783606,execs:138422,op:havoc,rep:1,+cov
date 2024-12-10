@@ -1,0 +1,7 @@
+diff id:000679,src:000667+000194,time:782911,execs:138320,op:splice,rep:12 -> id:000680,src:000611,time:783606,execs:138422,op:havoc,rep:1,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'line' coverage: 1967
+  New 'line' coverage: 1968
+  New 'line' coverage: 1969
+  New 'line' coverage: 1970
+  New 'line' coverage: 1971

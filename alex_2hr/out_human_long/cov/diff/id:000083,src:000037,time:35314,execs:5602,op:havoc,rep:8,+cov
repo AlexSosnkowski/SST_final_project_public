@@ -1,0 +1,3 @@
+diff id:000082,src:000037,time:35024,execs:5554,op:havoc,rep:3,+cov -> id:000083,src:000037,time:35314,execs:5602,op:havoc,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'line' coverage: 3787

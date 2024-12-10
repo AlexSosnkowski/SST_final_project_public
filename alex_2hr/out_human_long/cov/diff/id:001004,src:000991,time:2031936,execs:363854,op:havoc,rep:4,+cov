@@ -1,0 +1,5 @@
+diff id:001003,src:000991,time:2031339,execs:363749,op:havoc,rep:1 -> id:001004,src:000991,time:2031936,execs:363854,op:havoc,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'line' coverage: 577
+  New 'line' coverage: 578
+  New 'line' coverage: 579

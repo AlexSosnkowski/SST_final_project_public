@@ -1,0 +1,4 @@
+diff id:000312,src:000241,time:516539,execs:90376,op:havoc,rep:11 -> id:000313,src:000241,time:518108,execs:90653,op:havoc,rep:11,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_uu.c
+  New 'line' coverage: 221
+  New 'line' coverage: 222

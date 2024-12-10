@@ -1,0 +1,11 @@
+diff id:000243,src:000065+000169,time:438243,execs:76688,op:splice,rep:2,+cov -> id:000244,src:000065+000169,time:438616,execs:76754,op:splice,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_xz.c
+  New 'line' coverage: 448
+  New 'line' coverage: 449
+  New 'line' coverage: 452
+  New 'line' coverage: 696
+  New 'line' coverage: 697
+  New 'line' coverage: 698
+  New 'line' coverage: 699
+  New 'line' coverage: 700
+  New 'line' coverage: 701

@@ -1,0 +1,3 @@
+afl_cov_pid     : 2604706
+afl_cov_version : 0.6.2
+command_line    : ../afl-cov3.py -d ../alex_2hr/out_human_long/ --code-dir ../libarchive/libarchive/ --coverage-cmd LD_LIBRARY_PATH=../libarchive/libarchive ../libarchive/libarchive/harness AFL_FILE --overwrite

@@ -1,0 +1,3 @@
+diff id:001120,src:001111,time:3217358,execs:578760,op:havoc,rep:2,+cov -> id:001121,src:001111,time:3221850,execs:579577,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_sparse.c
+  New 'line' coverage: 63
