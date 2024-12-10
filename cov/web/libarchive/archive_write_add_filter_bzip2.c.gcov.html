@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - libarchive/archive_write_add_filter_bzip2.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">libarchive</a> - archive_write_add_filter_bzip2.c<span style="font-size: 80%;"> (source / <a href="archive_write_add_filter_bzip2.c.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">107</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2024-12-09 21:01:50</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : /*-</span>
+<span id="L2"><span class="lineNum">       2</span>              :  * Copyright (c) 2003-2007 Tim Kientzle</span>
+<span id="L3"><span class="lineNum">       3</span>              :  * Copyright (c) 2012 Michihiro NAKAJIMA</span>
+<span id="L4"><span class="lineNum">       4</span>              :  * All rights reserved.</span>
+<span id="L5"><span class="lineNum">       5</span>              :  *</span>
+<span id="L6"><span class="lineNum">       6</span>              :  * Redistribution and use in source and binary forms, with or without</span>
+<span id="L7"><span class="lineNum">       7</span>              :  * modification, are permitted provided that the following conditions</span>
+<span id="L8"><span class="lineNum">       8</span>              :  * are met:</span>
+<span id="L9"><span class="lineNum">       9</span>              :  * 1. Redistributions of source code must retain the above copyright</span>
+<span id="L10"><span class="lineNum">      10</span>              :  *    notice, this list of conditions and the following disclaimer.</span>
+<span id="L11"><span class="lineNum">      11</span>              :  * 2. Redistributions in binary form must reproduce the above copyright</span>
+<span id="L12"><span class="lineNum">      12</span>              :  *    notice, this list of conditions and the following disclaimer in the</span>
+<span id="L13"><span class="lineNum">      13</span>              :  *    documentation and/or other materials provided with the distribution.</span>
+<span id="L14"><span class="lineNum">      14</span>              :  *</span>
+<span id="L15"><span class="lineNum">      15</span>              :  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR(S) ``AS IS'' AND ANY EXPRESS OR</span>
+<span id="L16"><span class="lineNum">      16</span>              :  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES</span>
+<span id="L17"><span class="lineNum">      17</span>              :  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.</span>
+<span id="L18"><span class="lineNum">      18</span>              :  * IN NO EVENT SHALL THE AUTHOR(S) BE LIABLE FOR ANY DIRECT, INDIRECT,</span>
+<span id="L19"><span class="lineNum">      19</span>              :  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT</span>
+<span id="L20"><span class="lineNum">      20</span>              :  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span id="L21"><span class="lineNum">      21</span>              :  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span id="L22"><span class="lineNum">      22</span>              :  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span id="L23"><span class="lineNum">      23</span>              :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF</span>
+<span id="L24"><span class="lineNum">      24</span>              :  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span id="L25"><span class="lineNum">      25</span>              :  */</span>
+<span id="L26"><span class="lineNum">      26</span>              : </span>
+<span id="L27"><span class="lineNum">      27</span>              : #include &quot;archive_platform.h&quot;</span>
+<span id="L28"><span class="lineNum">      28</span>              : </span>
+<span id="L29"><span class="lineNum">      29</span>              : #ifdef HAVE_ERRNO_H</span>
+<span id="L30"><span class="lineNum">      30</span>              : #include &lt;errno.h&gt;</span>
+<span id="L31"><span class="lineNum">      31</span>              : #endif</span>
+<span id="L32"><span class="lineNum">      32</span>              : #include &lt;stdio.h&gt;</span>
+<span id="L33"><span class="lineNum">      33</span>              : #ifdef HAVE_STDLIB_H</span>
+<span id="L34"><span class="lineNum">      34</span>              : #include &lt;stdlib.h&gt;</span>
+<span id="L35"><span class="lineNum">      35</span>              : #endif</span>
+<span id="L36"><span class="lineNum">      36</span>              : #ifdef HAVE_STRING_H</span>
+<span id="L37"><span class="lineNum">      37</span>              : #include &lt;string.h&gt;</span>
+<span id="L38"><span class="lineNum">      38</span>              : #endif</span>
+<span id="L39"><span class="lineNum">      39</span>              : #ifdef HAVE_BZLIB_H</span>
+<span id="L40"><span class="lineNum">      40</span>              : #include &lt;bzlib.h&gt;</span>
+<span id="L41"><span class="lineNum">      41</span>              : #endif</span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span>              : #include &quot;archive.h&quot;</span>
+<span id="L44"><span class="lineNum">      44</span>              : #include &quot;archive_private.h&quot;</span>
+<span id="L45"><span class="lineNum">      45</span>              : #include &quot;archive_write_private.h&quot;</span>
+<span id="L46"><span class="lineNum">      46</span>              : </span>
+<span id="L47"><span class="lineNum">      47</span>              : #if ARCHIVE_VERSION_NUMBER &lt; 4000000</span>
+<span id="L48"><span class="lineNum">      48</span>              : int</span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC tlaBgUNC">           0 : archive_write_set_compression_bzip2(struct archive *a)</span></span>
+<span id="L50"><span class="lineNum">      50</span>              : {</span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :         __archive_write_filters_free(a);</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :         return (archive_write_add_filter_bzip2(a));</span></span>
+<span id="L53"><span class="lineNum">      53</span>              : }</span>
+<span id="L54"><span class="lineNum">      54</span>              : #endif</span>
+<span id="L55"><span class="lineNum">      55</span>              : </span>
+<span id="L56"><span class="lineNum">      56</span>              : struct private_data {</span>
+<span id="L57"><span class="lineNum">      57</span>              :         int              compression_level;</span>
+<span id="L58"><span class="lineNum">      58</span>              : #if defined(HAVE_BZLIB_H) &amp;&amp; defined(BZ_CONFIG_ERROR)</span>
+<span id="L59"><span class="lineNum">      59</span>              :         bz_stream        stream;</span>
+<span id="L60"><span class="lineNum">      60</span>              :         int64_t          total_in;</span>
+<span id="L61"><span class="lineNum">      61</span>              :         char            *compressed;</span>
+<span id="L62"><span class="lineNum">      62</span>              :         size_t           compressed_buffer_size;</span>
+<span id="L63"><span class="lineNum">      63</span>              : #else</span>
+<span id="L64"><span class="lineNum">      64</span>              :         struct archive_write_program_data *pdata;</span>
+<span id="L65"><span class="lineNum">      65</span>              : #endif</span>
+<span id="L66"><span class="lineNum">      66</span>              : };</span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              : static int archive_compressor_bzip2_close(struct archive_write_filter *);</span>
+<span id="L69"><span class="lineNum">      69</span>              : static int archive_compressor_bzip2_free(struct archive_write_filter *);</span>
+<span id="L70"><span class="lineNum">      70</span>              : static int archive_compressor_bzip2_open(struct archive_write_filter *);</span>
+<span id="L71"><span class="lineNum">      71</span>              : static int archive_compressor_bzip2_options(struct archive_write_filter *,</span>
+<span id="L72"><span class="lineNum">      72</span>              :                     const char *, const char *);</span>
+<span id="L73"><span class="lineNum">      73</span>              : static int archive_compressor_bzip2_write(struct archive_write_filter *,</span>
+<span id="L74"><span class="lineNum">      74</span>              :                     const void *, size_t);</span>
+<span id="L75"><span class="lineNum">      75</span>              : </span>
+<span id="L76"><span class="lineNum">      76</span>              : /*</span>
+<span id="L77"><span class="lineNum">      77</span>              :  * Add a bzip2 compression filter to this write handle.</span>
+<span id="L78"><span class="lineNum">      78</span>              :  */</span>
+<span id="L79"><span class="lineNum">      79</span>              : int</span>
+<span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC">           0 : archive_write_add_filter_bzip2(struct archive *_a)</span></span>
+<span id="L81"><span class="lineNum">      81</span>              : {</span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 :         struct archive_write *a = (struct archive_write *)_a;</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 :         struct archive_write_filter *f = __archive_write_allocate_filter(_a);</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :         struct private_data *data;</span></span>
+<span id="L85"><span class="lineNum">      85</span>              : </span>
+<span id="L86"><span class="lineNum">      86</span> <span class="tlaUNC">           0 :         archive_check_magic(&amp;a-&gt;archive, ARCHIVE_WRITE_MAGIC,</span></span>
+<span id="L87"><span class="lineNum">      87</span>              :             ARCHIVE_STATE_NEW, &quot;archive_write_add_filter_bzip2&quot;);</span>
+<span id="L88"><span class="lineNum">      88</span>              : </span>
+<span id="L89"><span class="lineNum">      89</span> <span class="tlaUNC">           0 :         data = calloc(1, sizeof(*data));</span></span>
+<span id="L90"><span class="lineNum">      90</span> <span class="tlaUNC">           0 :         if (data == NULL) {</span></span>
+<span id="L91"><span class="lineNum">      91</span> <span class="tlaUNC">           0 :                 archive_set_error(&amp;a-&gt;archive, ENOMEM, &quot;Out of memory&quot;);</span></span>
+<span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_FATAL);</span></span>
+<span id="L93"><span class="lineNum">      93</span>              :         }</span>
+<span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC">           0 :         data-&gt;compression_level = 9; /* default */</span></span>
+<span id="L95"><span class="lineNum">      95</span>              : </span>
+<span id="L96"><span class="lineNum">      96</span> <span class="tlaUNC">           0 :         f-&gt;data = data;</span></span>
+<span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC">           0 :         f-&gt;options = &amp;archive_compressor_bzip2_options;</span></span>
+<span id="L98"><span class="lineNum">      98</span> <span class="tlaUNC">           0 :         f-&gt;close = &amp;archive_compressor_bzip2_close;</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaUNC">           0 :         f-&gt;free = &amp;archive_compressor_bzip2_free;</span></span>
+<span id="L100"><span class="lineNum">     100</span> <span class="tlaUNC">           0 :         f-&gt;open = &amp;archive_compressor_bzip2_open;</span></span>
+<span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC">           0 :         f-&gt;code = ARCHIVE_FILTER_BZIP2;</span></span>
+<span id="L102"><span class="lineNum">     102</span> <span class="tlaUNC">           0 :         f-&gt;name = &quot;bzip2&quot;;</span></span>
+<span id="L103"><span class="lineNum">     103</span>              : #if defined(HAVE_BZLIB_H) &amp;&amp; defined(BZ_CONFIG_ERROR)</span>
+<span id="L104"><span class="lineNum">     104</span> <span class="tlaUNC">           0 :         return (ARCHIVE_OK);</span></span>
+<span id="L105"><span class="lineNum">     105</span>              : #else</span>
+<span id="L106"><span class="lineNum">     106</span>              :         data-&gt;pdata = __archive_write_program_allocate(&quot;bzip2&quot;);</span>
+<span id="L107"><span class="lineNum">     107</span>              :         if (data-&gt;pdata == NULL) {</span>
+<span id="L108"><span class="lineNum">     108</span>              :                 free(data);</span>
+<span id="L109"><span class="lineNum">     109</span>              :                 archive_set_error(&amp;a-&gt;archive, ENOMEM, &quot;Out of memory&quot;);</span>
+<span id="L110"><span class="lineNum">     110</span>              :                 return (ARCHIVE_FATAL);</span>
+<span id="L111"><span class="lineNum">     111</span>              :         }</span>
+<span id="L112"><span class="lineNum">     112</span>              :         data-&gt;compression_level = 0;</span>
+<span id="L113"><span class="lineNum">     113</span>              :         archive_set_error(&amp;a-&gt;archive, ARCHIVE_ERRNO_MISC,</span>
+<span id="L114"><span class="lineNum">     114</span>              :             &quot;Using external bzip2 program&quot;);</span>
+<span id="L115"><span class="lineNum">     115</span>              :         return (ARCHIVE_WARN);</span>
+<span id="L116"><span class="lineNum">     116</span>              : #endif</span>
+<span id="L117"><span class="lineNum">     117</span>              : }</span>
+<span id="L118"><span class="lineNum">     118</span>              : </span>
+<span id="L119"><span class="lineNum">     119</span>              : /*</span>
+<span id="L120"><span class="lineNum">     120</span>              :  * Set write options.</span>
+<span id="L121"><span class="lineNum">     121</span>              :  */</span>
+<span id="L122"><span class="lineNum">     122</span>              : static int</span>
+<span id="L123"><span class="lineNum">     123</span> <span class="tlaUNC">           0 : archive_compressor_bzip2_options(struct archive_write_filter *f,</span></span>
+<span id="L124"><span class="lineNum">     124</span>              :     const char *key, const char *value)</span>
+<span id="L125"><span class="lineNum">     125</span>              : {</span>
+<span id="L126"><span class="lineNum">     126</span> <span class="tlaUNC">           0 :         struct private_data *data = (struct private_data *)f-&gt;data;</span></span>
+<span id="L127"><span class="lineNum">     127</span>              : </span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaUNC">           0 :         if (strcmp(key, &quot;compression-level&quot;) == 0) {</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaUNC">           0 :                 if (value == NULL || !(value[0] &gt;= '0' &amp;&amp; value[0] &lt;= '9') ||</span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaUNC">           0 :                     value[1] != '\0')</span></span>
+<span id="L131"><span class="lineNum">     131</span>              :                         return (ARCHIVE_WARN);</span>
+<span id="L132"><span class="lineNum">     132</span> <span class="tlaUNC">           0 :                 data-&gt;compression_level = value[0] - '0';</span></span>
+<span id="L133"><span class="lineNum">     133</span>              :                 /* Make '0' be a synonym for '1'. */</span>
+<span id="L134"><span class="lineNum">     134</span>              :                 /* This way, bzip2 compressor supports the same 0..9</span>
+<span id="L135"><span class="lineNum">     135</span>              :                  * range of levels as gzip. */</span>
+<span id="L136"><span class="lineNum">     136</span> <span class="tlaUNC">           0 :                 if (data-&gt;compression_level &lt; 1)</span></span>
+<span id="L137"><span class="lineNum">     137</span> <span class="tlaUNC">           0 :                         data-&gt;compression_level = 1;</span></span>
+<span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_OK);</span></span>
+<span id="L139"><span class="lineNum">     139</span>              :         }</span>
+<span id="L140"><span class="lineNum">     140</span>              : </span>
+<span id="L141"><span class="lineNum">     141</span>              :         /* Note: The &quot;warn&quot; return is just to inform the options</span>
+<span id="L142"><span class="lineNum">     142</span>              :          * supervisor that we didn't handle it.  It will generate</span>
+<span id="L143"><span class="lineNum">     143</span>              :          * a suitable error if no one used this option. */</span>
+<span id="L144"><span class="lineNum">     144</span>              :         return (ARCHIVE_WARN);</span>
+<span id="L145"><span class="lineNum">     145</span>              : }</span>
+<span id="L146"><span class="lineNum">     146</span>              : </span>
+<span id="L147"><span class="lineNum">     147</span>              : #if defined(HAVE_BZLIB_H) &amp;&amp; defined(BZ_CONFIG_ERROR)</span>
+<span id="L148"><span class="lineNum">     148</span>              : /* Don't compile this if we don't have bzlib. */</span>
+<span id="L149"><span class="lineNum">     149</span>              : </span>
+<span id="L150"><span class="lineNum">     150</span>              : /*</span>
+<span id="L151"><span class="lineNum">     151</span>              :  * Yuck.  bzlib.h is not const-correct, so I need this one bit</span>
+<span id="L152"><span class="lineNum">     152</span>              :  * of ugly hackery to convert a const * pointer to a non-const pointer.</span>
+<span id="L153"><span class="lineNum">     153</span>              :  */</span>
+<span id="L154"><span class="lineNum">     154</span>              : #define SET_NEXT_IN(st,src)                                     \</span>
+<span id="L155"><span class="lineNum">     155</span>              :         (st)-&gt;stream.next_in = (char *)(uintptr_t)(const void *)(src)</span>
+<span id="L156"><span class="lineNum">     156</span>              : static int drive_compressor(struct archive_write_filter *,</span>
+<span id="L157"><span class="lineNum">     157</span>              :                     struct private_data *, int finishing);</span>
+<span id="L158"><span class="lineNum">     158</span>              : </span>
+<span id="L159"><span class="lineNum">     159</span>              : /*</span>
+<span id="L160"><span class="lineNum">     160</span>              :  * Setup callback.</span>
+<span id="L161"><span class="lineNum">     161</span>              :  */</span>
+<span id="L162"><span class="lineNum">     162</span>              : static int</span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaUNC">           0 : archive_compressor_bzip2_open(struct archive_write_filter *f)</span></span>
+<span id="L164"><span class="lineNum">     164</span>              : {</span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaUNC">           0 :         struct private_data *data = (struct private_data *)f-&gt;data;</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC">           0 :         int ret;</span></span>
+<span id="L167"><span class="lineNum">     167</span>              : </span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaUNC">           0 :         if (data-&gt;compressed == NULL) {</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaUNC">           0 :                 size_t bs = 65536, bpb;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaUNC">           0 :                 if (f-&gt;archive-&gt;magic == ARCHIVE_WRITE_MAGIC) {</span></span>
+<span id="L171"><span class="lineNum">     171</span>              :                         /* Buffer size should be a multiple number of the bytes</span>
+<span id="L172"><span class="lineNum">     172</span>              :                          * per block for performance. */</span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaUNC">           0 :                         bpb = archive_write_get_bytes_per_block(f-&gt;archive);</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaUNC">           0 :                         if (bpb &gt; bs)</span></span>
+<span id="L175"><span class="lineNum">     175</span>              :                                 bs = bpb;</span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaUNC">           0 :                         else if (bpb != 0)</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaUNC">           0 :                                 bs -= bs % bpb;</span></span>
+<span id="L178"><span class="lineNum">     178</span>              :                 }</span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC">           0 :                 data-&gt;compressed_buffer_size = bs;</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 :                 data-&gt;compressed = malloc(data-&gt;compressed_buffer_size);</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaUNC">           0 :                 if (data-&gt;compressed == NULL) {</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 :                         archive_set_error(f-&gt;archive, ENOMEM,</span></span>
+<span id="L183"><span class="lineNum">     183</span>              :                             &quot;Can't allocate data for compression buffer&quot;);</span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC">           0 :                         return (ARCHIVE_FATAL);</span></span>
+<span id="L185"><span class="lineNum">     185</span>              :                 }</span>
+<span id="L186"><span class="lineNum">     186</span>              :         }</span>
+<span id="L187"><span class="lineNum">     187</span>              : </span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :         memset(&amp;data-&gt;stream, 0, sizeof(data-&gt;stream));</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaUNC">           0 :         data-&gt;stream.next_out = data-&gt;compressed;</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaUNC">           0 :         data-&gt;stream.avail_out = (uint32_t)data-&gt;compressed_buffer_size;</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :         f-&gt;write = archive_compressor_bzip2_write;</span></span>
+<span id="L192"><span class="lineNum">     192</span>              : </span>
+<span id="L193"><span class="lineNum">     193</span>              :         /* Initialize compression library */</span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaUNC">           0 :         ret = BZ2_bzCompressInit(&amp;(data-&gt;stream),</span></span>
+<span id="L195"><span class="lineNum">     195</span>              :             data-&gt;compression_level, 0, 30);</span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC">           0 :         if (ret == BZ_OK) {</span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC">           0 :                 f-&gt;data = data;</span></span>
+<span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_OK);</span></span>
+<span id="L199"><span class="lineNum">     199</span>              :         }</span>
+<span id="L200"><span class="lineNum">     200</span>              : </span>
+<span id="L201"><span class="lineNum">     201</span>              :         /* Library setup failed: clean up. */</span>
+<span id="L202"><span class="lineNum">     202</span> <span class="tlaUNC">           0 :         archive_set_error(f-&gt;archive, ARCHIVE_ERRNO_MISC,</span></span>
+<span id="L203"><span class="lineNum">     203</span>              :             &quot;Internal error initializing compression library&quot;);</span>
+<span id="L204"><span class="lineNum">     204</span>              : </span>
+<span id="L205"><span class="lineNum">     205</span>              :         /* Override the error message if we know what really went wrong. */</span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaUNC">           0 :         switch (ret) {</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaUNC">           0 :         case BZ_PARAM_ERROR:</span></span>
+<span id="L208"><span class="lineNum">     208</span> <span class="tlaUNC">           0 :                 archive_set_error(f-&gt;archive, ARCHIVE_ERRNO_MISC,</span></span>
+<span id="L209"><span class="lineNum">     209</span>              :                     &quot;Internal error initializing compression library: &quot;</span>
+<span id="L210"><span class="lineNum">     210</span>              :                     &quot;invalid setup parameter&quot;);</span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaUNC">           0 :                 break;</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC">           0 :         case BZ_MEM_ERROR:</span></span>
+<span id="L213"><span class="lineNum">     213</span> <span class="tlaUNC">           0 :                 archive_set_error(f-&gt;archive, ENOMEM,</span></span>
+<span id="L214"><span class="lineNum">     214</span>              :                     &quot;Internal error initializing compression library: &quot;</span>
+<span id="L215"><span class="lineNum">     215</span>              :                     &quot;out of memory&quot;);</span>
+<span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC">           0 :                 break;</span></span>
+<span id="L217"><span class="lineNum">     217</span> <span class="tlaUNC">           0 :         case BZ_CONFIG_ERROR:</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaUNC">           0 :                 archive_set_error(f-&gt;archive, ARCHIVE_ERRNO_MISC,</span></span>
+<span id="L219"><span class="lineNum">     219</span>              :                     &quot;Internal error initializing compression library: &quot;</span>
+<span id="L220"><span class="lineNum">     220</span>              :                     &quot;mis-compiled library&quot;);</span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaUNC">           0 :                 break;</span></span>
+<span id="L222"><span class="lineNum">     222</span>              :         }</span>
+<span id="L223"><span class="lineNum">     223</span>              : </span>
+<span id="L224"><span class="lineNum">     224</span>              :         return (ARCHIVE_FATAL);</span>
+<span id="L225"><span class="lineNum">     225</span>              : </span>
+<span id="L226"><span class="lineNum">     226</span>              : }</span>
+<span id="L227"><span class="lineNum">     227</span>              : </span>
+<span id="L228"><span class="lineNum">     228</span>              : /*</span>
+<span id="L229"><span class="lineNum">     229</span>              :  * Write data to the compressed stream.</span>
+<span id="L230"><span class="lineNum">     230</span>              :  *</span>
+<span id="L231"><span class="lineNum">     231</span>              :  * Returns ARCHIVE_OK if all data written, error otherwise.</span>
+<span id="L232"><span class="lineNum">     232</span>              :  */</span>
+<span id="L233"><span class="lineNum">     233</span>              : static int</span>
+<span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC">           0 : archive_compressor_bzip2_write(struct archive_write_filter *f,</span></span>
+<span id="L235"><span class="lineNum">     235</span>              :     const void *buff, size_t length)</span>
+<span id="L236"><span class="lineNum">     236</span>              : {</span>
+<span id="L237"><span class="lineNum">     237</span> <span class="tlaUNC">           0 :         struct private_data *data = (struct private_data *)f-&gt;data;</span></span>
+<span id="L238"><span class="lineNum">     238</span>              : </span>
+<span id="L239"><span class="lineNum">     239</span>              :         /* Update statistics */</span>
+<span id="L240"><span class="lineNum">     240</span> <span class="tlaUNC">           0 :         data-&gt;total_in += length;</span></span>
+<span id="L241"><span class="lineNum">     241</span>              : </span>
+<span id="L242"><span class="lineNum">     242</span>              :         /* Compress input data to output buffer */</span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaUNC">           0 :         SET_NEXT_IN(data, buff);</span></span>
+<span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :         data-&gt;stream.avail_in = (uint32_t)length;</span></span>
+<span id="L245"><span class="lineNum">     245</span> <span class="tlaUNC">           0 :         if (drive_compressor(f, data, 0))</span></span>
+<span id="L246"><span class="lineNum">     246</span> <span class="tlaUNC">           0 :                 return (ARCHIVE_FATAL);</span></span>
+<span id="L247"><span class="lineNum">     247</span>              :         return (ARCHIVE_OK);</span>
+<span id="L248"><span class="lineNum">     248</span>              : }</span>
+<span id="L249"><span class="lineNum">     249</span>              : </span>
+<span id="L250"><span class="lineNum">     250</span>              : </span>
+<span id="L251"><span class="lineNum">     251</span>              : /*</span>
+<span id="L252"><span class="lineNum">     252</span>              :  * Finish the compression.</span>
+<span id="L253"><span class="lineNum">     253</span>              :  */</span>
+<span id="L254"><span class="lineNum">     254</span>              : static int</span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaUNC">           0 : archive_compressor_bzip2_close(struct archive_write_filter *f)</span></span>
+<span id="L256"><span class="lineNum">     256</span>              : {</span>
+<span id="L257"><span class="lineNum">     257</span> <span class="tlaUNC">           0 :         struct private_data *data = (struct private_data *)f-&gt;data;</span></span>
+<span id="L258"><span class="lineNum">     258</span> <span class="tlaUNC">           0 :         int ret;</span></span>
+<span id="L259"><span class="lineNum">     259</span>              : </span>
+<span id="L260"><span class="lineNum">     260</span>              :         /* Finish compression cycle. */</span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaUNC">           0 :         ret = drive_compressor(f, data, 1);</span></span>
+<span id="L262"><span class="lineNum">     262</span> <span class="tlaUNC">           0 :         if (ret == ARCHIVE_OK) {</span></span>
+<span id="L263"><span class="lineNum">     263</span>              :                 /* Write the last block */</span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :                 ret = __archive_write_filter(f-&gt;next_filter,</span></span>
+<span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :                     data-&gt;compressed,</span></span>
+<span id="L266"><span class="lineNum">     266</span> <span class="tlaUNC">           0 :                     data-&gt;compressed_buffer_size - data-&gt;stream.avail_out);</span></span>
+<span id="L267"><span class="lineNum">     267</span>              :         }</span>
+<span id="L268"><span class="lineNum">     268</span>              : </span>
+<span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC">           0 :         switch (BZ2_bzCompressEnd(&amp;(data-&gt;stream))) {</span></span>
+<span id="L270"><span class="lineNum">     270</span>              :         case BZ_OK:</span>
+<span id="L271"><span class="lineNum">     271</span>              :                 break;</span>
+<span id="L272"><span class="lineNum">     272</span> <span class="tlaUNC">           0 :         default:</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaUNC">           0 :                 archive_set_error(f-&gt;archive, ARCHIVE_ERRNO_PROGRAMMER,</span></span>
+<span id="L274"><span class="lineNum">     274</span>              :                     &quot;Failed to clean up compressor&quot;);</span>
+<span id="L275"><span class="lineNum">     275</span> <span class="tlaUNC">           0 :                 ret = ARCHIVE_FATAL;</span></span>
+<span id="L276"><span class="lineNum">     276</span>              :         }</span>
+<span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC">           0 :         return ret;</span></span>
+<span id="L278"><span class="lineNum">     278</span>              : }</span>
+<span id="L279"><span class="lineNum">     279</span>              : </span>
+<span id="L280"><span class="lineNum">     280</span>              : static int</span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaUNC">           0 : archive_compressor_bzip2_free(struct archive_write_filter *f)</span></span>
+<span id="L282"><span class="lineNum">     282</span>              : {</span>
+<span id="L283"><span class="lineNum">     283</span> <span class="tlaUNC">           0 :         struct private_data *data = (struct private_data *)f-&gt;data;</span></span>
+<span id="L284"><span class="lineNum">     284</span> <span class="tlaUNC">           0 :         free(data-&gt;compressed);</span></span>
+<span id="L285"><span class="lineNum">     285</span> <span class="tlaUNC">           0 :         free(data);</span></span>
+<span id="L286"><span class="lineNum">     286</span> <span class="tlaUNC">           0 :         f-&gt;data = NULL;</span></span>
+<span id="L287"><span class="lineNum">     287</span> <span class="tlaUNC">           0 :         return (ARCHIVE_OK);</span></span>
+<span id="L288"><span class="lineNum">     288</span>              : }</span>
+<span id="L289"><span class="lineNum">     289</span>              : </span>
+<span id="L290"><span class="lineNum">     290</span>              : /*</span>
+<span id="L291"><span class="lineNum">     291</span>              :  * Utility function to push input data through compressor, writing</span>
+<span id="L292"><span class="lineNum">     292</span>              :  * full output blocks as necessary.</span>
+<span id="L293"><span class="lineNum">     293</span>              :  *</span>
+<span id="L294"><span class="lineNum">     294</span>              :  * Note that this handles both the regular write case (finishing ==</span>
+<span id="L295"><span class="lineNum">     295</span>              :  * false) and the end-of-archive case (finishing == true).</span>
+<span id="L296"><span class="lineNum">     296</span>              :  */</span>
+<span id="L297"><span class="lineNum">     297</span>              : static int</span>
+<span id="L298"><span class="lineNum">     298</span> <span class="tlaUNC">           0 : drive_compressor(struct archive_write_filter *f,</span></span>
+<span id="L299"><span class="lineNum">     299</span>              :     struct private_data *data, int finishing)</span>
+<span id="L300"><span class="lineNum">     300</span>              : {</span>
+<span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC">           0 :         int ret;</span></span>
+<span id="L302"><span class="lineNum">     302</span>              : </span>
+<span id="L303"><span class="lineNum">     303</span> <span class="tlaUNC">           0 :         for (;;) {</span></span>
+<span id="L304"><span class="lineNum">     304</span> <span class="tlaUNC">           0 :                 if (data-&gt;stream.avail_out == 0) {</span></span>
+<span id="L305"><span class="lineNum">     305</span> <span class="tlaUNC">           0 :                         ret = __archive_write_filter(f-&gt;next_filter,</span></span>
+<span id="L306"><span class="lineNum">     306</span> <span class="tlaUNC">           0 :                             data-&gt;compressed,</span></span>
+<span id="L307"><span class="lineNum">     307</span>              :                             data-&gt;compressed_buffer_size);</span>
+<span id="L308"><span class="lineNum">     308</span> <span class="tlaUNC">           0 :                         if (ret != ARCHIVE_OK) {</span></span>
+<span id="L309"><span class="lineNum">     309</span>              :                                 /* TODO: Handle this write failure */</span>
+<span id="L310"><span class="lineNum">     310</span>              :                                 return (ARCHIVE_FATAL);</span>
+<span id="L311"><span class="lineNum">     311</span>              :                         }</span>
+<span id="L312"><span class="lineNum">     312</span> <span class="tlaUNC">           0 :                         data-&gt;stream.next_out = data-&gt;compressed;</span></span>
+<span id="L313"><span class="lineNum">     313</span> <span class="tlaUNC">           0 :                         data-&gt;stream.avail_out = (uint32_t)data-&gt;compressed_buffer_size;</span></span>
+<span id="L314"><span class="lineNum">     314</span>              :                 }</span>
+<span id="L315"><span class="lineNum">     315</span>              : </span>
+<span id="L316"><span class="lineNum">     316</span>              :                 /* If there's nothing to do, we're done. */</span>
+<span id="L317"><span class="lineNum">     317</span> <span class="tlaUNC">           0 :                 if (!finishing &amp;&amp; data-&gt;stream.avail_in == 0)</span></span>
+<span id="L318"><span class="lineNum">     318</span>              :                         return (ARCHIVE_OK);</span>
+<span id="L319"><span class="lineNum">     319</span>              : </span>
+<span id="L320"><span class="lineNum">     320</span> <span class="tlaUNC">           0 :                 ret = BZ2_bzCompress(&amp;(data-&gt;stream),</span></span>
+<span id="L321"><span class="lineNum">     321</span>              :                     finishing ? BZ_FINISH : BZ_RUN);</span>
+<span id="L322"><span class="lineNum">     322</span>              : </span>
+<span id="L323"><span class="lineNum">     323</span> <span class="tlaUNC">           0 :                 switch (ret) {</span></span>
+<span id="L324"><span class="lineNum">     324</span> <span class="tlaUNC">           0 :                 case BZ_RUN_OK:</span></span>
+<span id="L325"><span class="lineNum">     325</span>              :                         /* In non-finishing case, did compressor</span>
+<span id="L326"><span class="lineNum">     326</span>              :                          * consume everything? */</span>
+<span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC">           0 :                         if (!finishing &amp;&amp; data-&gt;stream.avail_in == 0)</span></span>
+<span id="L328"><span class="lineNum">     328</span>              :                                 return (ARCHIVE_OK);</span>
+<span id="L329"><span class="lineNum">     329</span>              :                         break;</span>
+<span id="L330"><span class="lineNum">     330</span>              :                 case BZ_FINISH_OK:  /* Finishing: There's more work to do */</span>
+<span id="L331"><span class="lineNum">     331</span>              :                         break;</span>
+<span id="L332"><span class="lineNum">     332</span>              :                 case BZ_STREAM_END: /* Finishing: all done */</span>
+<span id="L333"><span class="lineNum">     333</span>              :                         /* Only occurs in finishing case */</span>
+<span id="L334"><span class="lineNum">     334</span>              :                         return (ARCHIVE_OK);</span>
+<span id="L335"><span class="lineNum">     335</span> <span class="tlaUNC">           0 :                 default:</span></span>
+<span id="L336"><span class="lineNum">     336</span>              :                         /* Any other return value indicates an error */</span>
+<span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC">           0 :                         archive_set_error(f-&gt;archive,</span></span>
+<span id="L338"><span class="lineNum">     338</span>              :                             ARCHIVE_ERRNO_PROGRAMMER,</span>
+<span id="L339"><span class="lineNum">     339</span>              :                             &quot;Bzip2 compression failed;&quot;</span>
+<span id="L340"><span class="lineNum">     340</span>              :                             &quot; BZ2_bzCompress() returned %d&quot;,</span>
+<span id="L341"><span class="lineNum">     341</span>              :                             ret);</span>
+<span id="L342"><span class="lineNum">     342</span> <span class="tlaUNC">           0 :                         return (ARCHIVE_FATAL);</span></span>
+<span id="L343"><span class="lineNum">     343</span>              :                 }</span>
+<span id="L344"><span class="lineNum">     344</span>              :         }</span>
+<span id="L345"><span class="lineNum">     345</span>              : }</span>
+<span id="L346"><span class="lineNum">     346</span>              : </span>
+<span id="L347"><span class="lineNum">     347</span>              : #else /* HAVE_BZLIB_H &amp;&amp; BZ_CONFIG_ERROR */</span>
+<span id="L348"><span class="lineNum">     348</span>              : </span>
+<span id="L349"><span class="lineNum">     349</span>              : static int</span>
+<span id="L350"><span class="lineNum">     350</span>              : archive_compressor_bzip2_open(struct archive_write_filter *f)</span>
+<span id="L351"><span class="lineNum">     351</span>              : {</span>
+<span id="L352"><span class="lineNum">     352</span>              :         struct private_data *data = (struct private_data *)f-&gt;data;</span>
+<span id="L353"><span class="lineNum">     353</span>              :         struct archive_string as;</span>
+<span id="L354"><span class="lineNum">     354</span>              :         int r;</span>
+<span id="L355"><span class="lineNum">     355</span>              : </span>
+<span id="L356"><span class="lineNum">     356</span>              :         archive_string_init(&amp;as);</span>
+<span id="L357"><span class="lineNum">     357</span>              :         archive_strcpy(&amp;as, &quot;bzip2&quot;);</span>
+<span id="L358"><span class="lineNum">     358</span>              : </span>
+<span id="L359"><span class="lineNum">     359</span>              :         /* Specify compression level. */</span>
+<span id="L360"><span class="lineNum">     360</span>              :         if (data-&gt;compression_level &gt; 0) {</span>
+<span id="L361"><span class="lineNum">     361</span>              :                 archive_strcat(&amp;as, &quot; -&quot;);</span>
+<span id="L362"><span class="lineNum">     362</span>              :                 archive_strappend_char(&amp;as, '0' + data-&gt;compression_level);</span>
+<span id="L363"><span class="lineNum">     363</span>              :         }</span>
+<span id="L364"><span class="lineNum">     364</span>              :         f-&gt;write = archive_compressor_bzip2_write;</span>
+<span id="L365"><span class="lineNum">     365</span>              : </span>
+<span id="L366"><span class="lineNum">     366</span>              :         r = __archive_write_program_open(f, data-&gt;pdata, as.s);</span>
+<span id="L367"><span class="lineNum">     367</span>              :         archive_string_free(&amp;as);</span>
+<span id="L368"><span class="lineNum">     368</span>              :         return (r);</span>
+<span id="L369"><span class="lineNum">     369</span>              : }</span>
+<span id="L370"><span class="lineNum">     370</span>              : </span>
+<span id="L371"><span class="lineNum">     371</span>              : static int</span>
+<span id="L372"><span class="lineNum">     372</span>              : archive_compressor_bzip2_write(struct archive_write_filter *f, const void *buff,</span>
+<span id="L373"><span class="lineNum">     373</span>              :     size_t length)</span>
+<span id="L374"><span class="lineNum">     374</span>              : {</span>
+<span id="L375"><span class="lineNum">     375</span>              :         struct private_data *data = (struct private_data *)f-&gt;data;</span>
+<span id="L376"><span class="lineNum">     376</span>              : </span>
+<span id="L377"><span class="lineNum">     377</span>              :         return __archive_write_program_write(f, data-&gt;pdata, buff, length);</span>
+<span id="L378"><span class="lineNum">     378</span>              : }</span>
+<span id="L379"><span class="lineNum">     379</span>              : </span>
+<span id="L380"><span class="lineNum">     380</span>              : static int</span>
+<span id="L381"><span class="lineNum">     381</span>              : archive_compressor_bzip2_close(struct archive_write_filter *f)</span>
+<span id="L382"><span class="lineNum">     382</span>              : {</span>
+<span id="L383"><span class="lineNum">     383</span>              :         struct private_data *data = (struct private_data *)f-&gt;data;</span>
+<span id="L384"><span class="lineNum">     384</span>              : </span>
+<span id="L385"><span class="lineNum">     385</span>              :         return __archive_write_program_close(f, data-&gt;pdata);</span>
+<span id="L386"><span class="lineNum">     386</span>              : }</span>
+<span id="L387"><span class="lineNum">     387</span>              : </span>
+<span id="L388"><span class="lineNum">     388</span>              : static int</span>
+<span id="L389"><span class="lineNum">     389</span>              : archive_compressor_bzip2_free(struct archive_write_filter *f)</span>
+<span id="L390"><span class="lineNum">     390</span>              : {</span>
+<span id="L391"><span class="lineNum">     391</span>              :         struct private_data *data = (struct private_data *)f-&gt;data;</span>
+<span id="L392"><span class="lineNum">     392</span>              : </span>
+<span id="L393"><span class="lineNum">     393</span>              :         __archive_write_program_free(data-&gt;pdata);</span>
+<span id="L394"><span class="lineNum">     394</span>              :         free(data);</span>
+<span id="L395"><span class="lineNum">     395</span>              :         return (ARCHIVE_OK);</span>
+<span id="L396"><span class="lineNum">     396</span>              : }</span>
+<span id="L397"><span class="lineNum">     397</span>              : </span>
+<span id="L398"><span class="lineNum">     398</span>              : #endif /* HAVE_BZLIB_H &amp;&amp; BZ_CONFIG_ERROR */</span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

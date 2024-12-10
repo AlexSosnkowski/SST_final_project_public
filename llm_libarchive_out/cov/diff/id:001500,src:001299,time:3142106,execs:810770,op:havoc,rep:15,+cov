@@ -1,0 +1,32 @@
+diff id:001499,src:001299,time:3139674,execs:810177,op:havoc,rep:13,+cov -> id:001500,src:001299,time:3142106,execs:810770,op:havoc,rep:15,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_add_passphrase.c
+  New 'function' coverage: __archive_read_next_passphrase()
+  New 'line' coverage: 138
+  New 'line' coverage: 140
+  New 'line' coverage: 141
+  New 'line' coverage: 143
+  New 'line' coverage: 145
+  New 'line' coverage: 147
+  New 'line' coverage: 149
+  New 'line' coverage: 150
+  New 'line' coverage: 170
+  New 'line' coverage: 172
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'function' coverage: init_traditional_PKWARE_decryption()
+  New 'line' coverage: 2927
+  New 'line' coverage: 2929
+  New 'line' coverage: 2930
+  New 'line' coverage: 2931
+  New 'line' coverage: 2932
+  New 'line' coverage: 2934
+  New 'line' coverage: 2942
+  New 'line' coverage: 2950
+  New 'line' coverage: 2951
+  New 'line' coverage: 2958
+  New 'line' coverage: 2959
+  New 'line' coverage: 2961
+  New 'line' coverage: 2962
+  New 'line' coverage: 2963
+  New 'line' coverage: 2967
+  New 'line' coverage: 3529
+  New 'line' coverage: 3532

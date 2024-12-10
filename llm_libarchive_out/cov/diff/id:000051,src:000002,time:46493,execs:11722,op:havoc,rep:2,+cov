@@ -1,0 +1,34 @@
+diff id:000050,src:000002,time:46458,execs:11713,op:havoc,rep:3,+cov -> id:000051,src:000002,time:46493,execs:11722,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read.c
+  New 'function' coverage: client_skip_proxy()
+  New 'line' coverage: 1567
+  New 'line' coverage: 1568
+  New 'line' coverage: 1569
+  New 'line' coverage: 1573
+  New 'line' coverage: 1574
+  New 'line' coverage: 1575
+  New 'line' coverage: 1576
+  New 'line' coverage: 171
+  New 'line' coverage: 173
+  New 'line' coverage: 175
+  New 'line' coverage: 178
+  New 'line' coverage: 184
+  New 'line' coverage: 185
+  New 'line' coverage: 186
+  New 'line' coverage: 188
+  New 'line' coverage: 190
+  New 'line' coverage: 191
+  New 'line' coverage: 192
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_open_filename.c
+  New 'function' coverage: file_skip()
+  New 'function' coverage: file_skip_lseek()
+  New 'line' coverage: 477
+  New 'line' coverage: 479
+  New 'line' coverage: 484
+  New 'line' coverage: 494
+  New 'line' coverage: 495
+  New 'line' coverage: 496
+  New 'line' coverage: 524
+  New 'line' coverage: 526
+  New 'line' coverage: 529
+  New 'line' coverage: 530

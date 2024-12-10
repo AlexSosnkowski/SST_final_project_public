@@ -1,0 +1,6 @@
+click
+langchain
+langchain_openai
+langchain_community
+beautifulsoup4
+faiss-cpu

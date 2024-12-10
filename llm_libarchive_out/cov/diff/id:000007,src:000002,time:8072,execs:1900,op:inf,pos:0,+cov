@@ -1,0 +1,47 @@
+diff id:000006,time:0,execs:0,orig:tar.tar -> id:000007,src:000002,time:8072,execs:1900,op:inf,pos:0,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read.c
+  New 'line' coverage: 524
+  New 'line' coverage: 525
+  New 'line' coverage: 526
+  New 'line' coverage: 736
+  New 'line' coverage: 738
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'function' coverage: bid_entry()
+  New 'line' coverage: 334
+  New 'line' coverage: 335
+  New 'line' coverage: 342
+  New 'line' coverage: 343
+  New 'line' coverage: 344
+  New 'line' coverage: 580
+  New 'line' coverage: 582
+  New 'line' coverage: 583
+  New 'line' coverage: 607
+  New 'line' coverage: 608
+  New 'line' coverage: 609
+  New 'line' coverage: 611
+  New 'line' coverage: 615
+  New 'line' coverage: 616
+  New 'line' coverage: 617
+  New 'line' coverage: 618
+  New 'line' coverage: 624
+  New 'line' coverage: 630
+  New 'line' coverage: 631
+  New 'line' coverage: 632
+  New 'line' coverage: 635
+  New 'line' coverage: 636
+  New 'line' coverage: 638
+  New 'line' coverage: 642
+  New 'line' coverage: 643
+  New 'line' coverage: 711
+  New 'line' coverage: 714
+  New 'line' coverage: 720
+  New 'line' coverage: 740
+  New 'line' coverage: 741
+  New 'line' coverage: 743
+  New 'line' coverage: 744
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar.c
+  New 'line' coverage: 804
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_util.c
+  New 'function' coverage: archive_error_string()
+  New 'line' coverage: 109
+  New 'line' coverage: 112

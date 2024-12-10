@@ -1,0 +1,11 @@
+diff id:000225,src:000224,time:122683,execs:54842,op:havoc,rep:1,+cov -> id:000226,src:000224,time:122774,execs:54880,op:havoc,rep:7,+cov
+Src file: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+  New 'function' coverage: hex_value()
+  New 'line' coverage: 419
+  New 'line' coverage: 421
+  New 'line' coverage: 422
+  New 'line' coverage: 427
+  New 'line' coverage: 428
+  New 'line' coverage: 47
+  New 'line' coverage: 49
+  New 'line' coverage: 52

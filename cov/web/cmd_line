@@ -1,0 +1,1 @@
+genhtml --output-directory harness/out//cov/web harness/out//cov/lcov/trace.lcov_info_final

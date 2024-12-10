@@ -1,0 +1,6 @@
+diff id:000688,src:000643,time:919460,execs:237778,op:int32,pos:3018,val:be:-32768 -> id:000689,src:000643,time:919520,execs:237793,op:int32,pos:3018,val:+1000,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string.c
+  New 'line' coverage: 2331
+  New 'line' coverage: 2332
+  New 'line' coverage: 2333
+  New 'line' coverage: 2338

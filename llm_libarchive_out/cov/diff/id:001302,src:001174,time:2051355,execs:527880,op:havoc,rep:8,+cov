@@ -1,0 +1,34 @@
+diff id:001301,src:001174,time:2051220,execs:527847,op:havoc,rep:5 -> id:001302,src:001174,time:2051355,execs:527880,op:havoc,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'function' coverage: read_decryption_header()
+  New 'line' coverage: 2714
+  New 'line' coverage: 2716
+  New 'line' coverage: 2717
+  New 'line' coverage: 2718
+  New 'line' coverage: 2719
+  New 'line' coverage: 2724
+  New 'line' coverage: 2725
+  New 'line' coverage: 2727
+  New 'line' coverage: 2728
+  New 'line' coverage: 2729
+  New 'line' coverage: 2730
+  New 'line' coverage: 2734
+  New 'line' coverage: 2735
+  New 'line' coverage: 2737
+  New 'line' coverage: 2738
+  New 'line' coverage: 2739
+  New 'line' coverage: 2742
+  New 'line' coverage: 2743
+  New 'line' coverage: 2748
+  New 'line' coverage: 2749
+  New 'line' coverage: 2751
+  New 'line' coverage: 2752
+  New 'line' coverage: 2753
+  New 'line' coverage: 2897
+  New 'line' coverage: 2898
+  New 'line' coverage: 2900
+  New 'line' coverage: 3524
+  New 'line' coverage: 3526
+  New 'line' coverage: 3527
+  New 'line' coverage: 3528
+  New 'line' coverage: 3533

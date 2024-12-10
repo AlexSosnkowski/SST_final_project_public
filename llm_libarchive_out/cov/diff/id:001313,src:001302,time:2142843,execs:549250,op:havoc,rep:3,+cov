@@ -1,0 +1,5 @@
+diff id:001312,src:001302,time:2142323,execs:549123,op:havoc,rep:6,+cov -> id:001313,src:001302,time:2142843,execs:549250,op:havoc,rep:3,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read.c
+  New 'line' coverage: 1375
+  New 'line' coverage: 1376
+  New 'line' coverage: 1378

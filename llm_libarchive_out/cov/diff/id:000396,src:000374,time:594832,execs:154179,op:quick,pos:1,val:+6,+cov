@@ -1,0 +1,3 @@
+diff id:000395,src:000362+000026,time:587533,execs:152506,op:splice,rep:1 -> id:000396,src:000374,time:594832,execs:154179,op:quick,pos:1,val:+6,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read.c
+  New 'line' coverage: 1350

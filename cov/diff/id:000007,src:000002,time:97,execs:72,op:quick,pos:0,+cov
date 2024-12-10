@@ -1,0 +1,11 @@
+diff id:000006,time:0,execs:0,orig:tar.tar -> id:000007,src:000002,time:97,execs:72,op:quick,pos:0,+cov
+Src file: /home/ubuntu/afl-cov/libarchive/libarchive/archive_read.c
+  New 'line' coverage: 524
+  New 'line' coverage: 525
+  New 'line' coverage: 526
+  New 'line' coverage: 736
+  New 'line' coverage: 738
+Src file: /home/ubuntu/afl-cov/libarchive/libarchive/archive_util.c
+  New 'function' coverage: archive_error_string()
+  New 'line' coverage: 109
+  New 'line' coverage: 112

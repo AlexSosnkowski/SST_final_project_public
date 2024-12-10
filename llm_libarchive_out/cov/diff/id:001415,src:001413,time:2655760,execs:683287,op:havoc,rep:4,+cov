@@ -1,0 +1,16 @@
+diff id:001414,src:001404,time:2641180,execs:679282,op:havoc,rep:2 -> id:001415,src:001413,time:2655760,execs:683287,op:havoc,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'function' coverage: parse_keyword()
+  New 'line' coverage: 1427
+  New 'line' coverage: 1428
+  New 'line' coverage: 1601
+  New 'line' coverage: 1604
+  New 'line' coverage: 1606
+  New 'line' coverage: 1608
+  New 'line' coverage: 1611
+  New 'line' coverage: 1615
+  New 'line' coverage: 1619
+  New 'line' coverage: 1628
+  New 'line' coverage: 1629
+  New 'line' coverage: 1630
+  New 'line' coverage: 1632

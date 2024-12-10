@@ -1,0 +1,45 @@
+diff id:000644,src:000643,time:901254,execs:233244,op:quick,pos:2996,val:+4,+cov -> id:000645,src:000643,time:901371,execs:233273,op:quick,pos:3018,val:+4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'line' coverage: 1017
+  New 'line' coverage: 1022
+  New 'line' coverage: 1027
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string.c
+  New 'function' coverage: archive_string_conversion_charset_name()
+  New 'function' coverage: unicode_to_utf8()
+  New 'line' coverage: 1837
+  New 'line' coverage: 1839
+  New 'line' coverage: 1842
+  New 'line' coverage: 2008
+  New 'line' coverage: 2060
+  New 'line' coverage: 2066
+  New 'line' coverage: 2094
+  New 'line' coverage: 2095
+  New 'line' coverage: 2097
+  New 'line' coverage: 2098
+  New 'line' coverage: 2099
+  New 'line' coverage: 2388
+  New 'line' coverage: 2389
+  New 'line' coverage: 2398
+  New 'line' coverage: 2399
+  New 'line' coverage: 2401
+  New 'line' coverage: 2407
+  New 'line' coverage: 2417
+  New 'line' coverage: 2418
+  New 'line' coverage: 2419
+  New 'line' coverage: 2493
+  New 'line' coverage: 2495
+  New 'line' coverage: 2498
+  New 'line' coverage: 2501
+  New 'line' coverage: 2505
+  New 'line' coverage: 2510
+  New 'line' coverage: 2511
+  New 'line' coverage: 2513
+  New 'line' coverage: 2514
+  New 'line' coverage: 2515
+  New 'line' coverage: 2524
+  New 'line' coverage: 2992
+  New 'line' coverage: 2993
+  New 'line' coverage: 2994
+  New 'line' coverage: 2995
+  New 'line' coverage: 2996
+  New 'line' coverage: 4228

@@ -1,0 +1,17 @@
+To start fuzzing, you'll need initial seed files. These files should contain valid (and potentially invalid) XML data to help AFL++ explore the input space effectively. You can use the following resources and commands to create seed files:
+
+1. **Example XML Files**: Use some simple XML files as starting seeds. Here's an example of a simple XML seed:
+
+   ```xml
+   <!-- seed1.xml -->
+   <?xml version="1.0"?>
+   <root>
+       <element attribute="value">Text</element>
+   </root>
+   ```
+
+2. **Generate Seeds**: You can generate XML seeds using online XML generators or by creating variations of the above example with different structures, nested elements, attributes, etc.
+
+3. **Directory Structure**: Place these seed files in a directory named `seeds` in the same location as your `Makefile` and `harness.c`.
+
+Once the seed files are prepared, use the `make afl` command to start fuzzing libxml2 with AFL++. Make sure libxml2 is compiled and accessible for linking during the fuzzing process.

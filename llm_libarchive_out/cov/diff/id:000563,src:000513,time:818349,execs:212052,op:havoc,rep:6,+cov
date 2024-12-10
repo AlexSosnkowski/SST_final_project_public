@@ -1,0 +1,11 @@
+diff id:000562,src:000513,time:817593,execs:211852,op:havoc,rep:6 -> id:000563,src:000513,time:818349,execs:212052,op:havoc,rep:6,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'line' coverage: 1102
+  New 'line' coverage: 1104
+  New 'line' coverage: 1105
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string_sprintf.c
+  New 'line' coverage: 170
+  New 'line' coverage: 172
+  New 'line' coverage: 173
+  New 'line' coverage: 179
+  New 'line' coverage: 181

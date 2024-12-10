@@ -1,0 +1,13 @@
+# id:NNNNNN*_file, cycle, src_file, coverage_type, fcn/line
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, default_alloc()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, default_free()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_parse()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_parse_ex()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, new_value()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/main.c, function, main()
+id:000042,src:000000+000025,time:3756,execs:849,op:splice,rep:2,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_value_free()
+id:000042,src:000000+000025,time:3756,execs:849,op:splice,rep:2,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_value_free_ex()
+id:000042,src:000000+000025,time:3756,execs:849,op:splice,rep:2,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/main.c, function, process_value()
+id:000086,src:000000+000015,time:15369,execs:6124,op:splice,rep:8,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/main.c, function, process_object()
+id:000250,src:000233,time:200903,execs:96004,op:havoc,rep:9,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, hex_value()
+id:000336,src:000190,time:491594,execs:239183,op:havoc,rep:6,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/main.c, function, process_array()

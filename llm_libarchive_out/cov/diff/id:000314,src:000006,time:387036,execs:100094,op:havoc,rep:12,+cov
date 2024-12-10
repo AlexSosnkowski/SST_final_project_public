@@ -1,0 +1,18 @@
+diff id:000313,src:000006,time:386829,execs:100039,op:havoc,rep:11 -> id:000314,src:000006,time:387036,execs:100094,op:havoc,rep:12,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'function' coverage: tar_atol256()
+  New 'line' coverage: 3285
+  New 'line' coverage: 3361
+  New 'line' coverage: 3363
+  New 'line' coverage: 3364
+  New 'line' coverage: 3365
+  New 'line' coverage: 3368
+  New 'line' coverage: 3369
+  New 'line' coverage: 3370
+  New 'line' coverage: 3371
+  New 'line' coverage: 3372
+  New 'line' coverage: 3381
+  New 'line' coverage: 3382
+  New 'line' coverage: 3383
+  New 'line' coverage: 3384
+  New 'line' coverage: 3385

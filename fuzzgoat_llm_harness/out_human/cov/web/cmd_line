@@ -1,0 +1,1 @@
+genhtml --output-directory ./out_human/cov/web ./out_human/cov/lcov/trace.lcov_info_final

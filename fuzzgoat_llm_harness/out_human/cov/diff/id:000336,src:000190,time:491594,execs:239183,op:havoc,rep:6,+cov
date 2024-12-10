@@ -1,0 +1,33 @@
+diff id:000335,src:000019+000315,time:434508,execs:210712,op:splice,rep:2 -> id:000336,src:000190,time:491594,execs:239183,op:havoc,rep:6,+cov
+Src file: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+  New 'line' coverage: 1003
+  New 'line' coverage: 1005
+  New 'line' coverage: 1006
+  New 'line' coverage: 1008
+  New 'line' coverage: 119
+  New 'line' coverage: 121
+  New 'line' coverage: 143
+  New 'line' coverage: 144
+  New 'line' coverage: 149
+  New 'line' coverage: 150
+  New 'line' coverage: 226
+  New 'line' coverage: 228
+  New 'line' coverage: 230
+  New 'line' coverage: 231
+  New 'line' coverage: 234
+  New 'line' coverage: 235
+  New 'line' coverage: 992
+  New 'line' coverage: 994
+Src file: /home/ubuntu/final_project_testing/fuzzgoat/main.c
+  New 'function' coverage: process_array()
+  New 'line' coverage: 41
+  New 'line' coverage: 61
+  New 'line' coverage: 63
+  New 'line' coverage: 64
+  New 'line' coverage: 67
+  New 'line' coverage: 68
+  New 'line' coverage: 69
+  New 'line' coverage: 70
+  New 'line' coverage: 90
+  New 'line' coverage: 91
+  New 'line' coverage: 92

@@ -1,0 +1,1 @@
+genhtml --output-directory ../finalproject/output//cov/web ../finalproject/output//cov/lcov/trace.lcov_info_final

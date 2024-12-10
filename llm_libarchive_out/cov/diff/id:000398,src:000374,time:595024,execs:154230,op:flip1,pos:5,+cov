@@ -1,0 +1,4 @@
+diff id:000397,src:000374,time:594874,execs:154190,op:quick,pos:5,val:+6,+cov -> id:000398,src:000374,time:595024,execs:154230,op:flip1,pos:5,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_xz.c
+  New 'line' coverage: 723
+  New 'line' coverage: 724

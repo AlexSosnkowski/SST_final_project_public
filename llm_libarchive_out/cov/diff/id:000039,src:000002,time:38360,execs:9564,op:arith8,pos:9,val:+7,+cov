@@ -1,0 +1,5 @@
+diff id:000038,src:000002,time:37933,execs:9450,op:arith8,pos:6,val:+10,+cov -> id:000039,src:000002,time:38360,execs:9564,op:arith8,pos:9,val:+7,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar.c
+  New 'line' coverage: 1080
+  New 'line' coverage: 1081
+  New 'line' coverage: 1082

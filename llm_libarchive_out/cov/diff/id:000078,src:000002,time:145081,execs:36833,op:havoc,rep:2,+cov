@@ -1,0 +1,15 @@
+diff id:000077,src:000002,time:142097,execs:36051,op:havoc,rep:4 -> id:000078,src:000002,time:145081,execs:36833,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'function' coverage: read_eocd()
+  New 'line' coverage: 3657
+  New 'line' coverage: 3659
+  New 'line' coverage: 3660
+  New 'line' coverage: 3662
+  New 'line' coverage: 3663
+  New 'line' coverage: 3664
+  New 'line' coverage: 3669
+  New 'line' coverage: 3672
+  New 'line' coverage: 3774
+  New 'line' coverage: 3778
+  New 'line' coverage: 3781
+  New 'line' coverage: 3783

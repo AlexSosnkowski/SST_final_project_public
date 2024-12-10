@@ -1,0 +1,40 @@
+Here is some useful advice for generating seeds
+
+
+To generate seed files for AFL++, you should create a directory named `seeds` and populate it with JSON strings of varying complexity. Here are some example seeds you can use:
+
+1. `seeds/simple.json`
+   ```json
+   {}
+   ```
+
+2. `seeds/basic.json`
+   ```json
+   {"name": "John"}
+   ```
+
+3. `seeds/nested.json`
+   ```json
+   {"person": {"name": "John", "age": 30}}
+   ```
+
+4. `seeds/array.json`
+   ```json
+   {"names": ["John", "Jane", "Doe"]}
+   ```
+
+5. `seeds/complex.json`
+   ```json
+   {
+       "name": "John",
+       "age": 30,
+       "address": {
+           "street": "123 Main St",
+           "city": "Anytown"
+       },
+       "phoneNumbers": [
+           {"type": "home", "number": "123-456-7890"},
+           {"type": "work", "number": "987-654-3210"}
+       ]
+   }
+   ```

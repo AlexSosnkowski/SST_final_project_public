@@ -1,0 +1,437 @@
+# All functions / lines in this file were executed by at
+# least one AFL test case. See the cov/id-delta-cov file
+# for more information.
+File: /home/ubuntu/NEW/harness.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_acl.c
+    function: archive_acl_clear()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_blake2_impl.h
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_blake2s_ref.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_blake2sp_ref.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_check_magic.c
+    function: __archive_check_magic()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_cmdline.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_cryptor.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_digest.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_endian.h
+    function: archive_le64dec()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry.c
+    function: _archive_entry_copy_gname_l()
+    function: _archive_entry_copy_pathname_l()
+    function: _archive_entry_copy_uname_l()
+    function: archive_entry_atime_is_set()
+    function: archive_entry_clear()
+    function: archive_entry_copy_mac_metadata()
+    function: archive_entry_copy_pathname()
+    function: archive_entry_copy_pathname_w()
+    function: archive_entry_ctime_is_set()
+    function: archive_entry_filetype()
+    function: archive_entry_free()
+    function: archive_entry_gid_is_set()
+    function: archive_entry_gname()
+    function: archive_entry_mtime_is_set()
+    function: archive_entry_new2()
+    function: archive_entry_pathname()
+    function: archive_entry_pathname_w()
+    function: archive_entry_perm_is_set()
+    function: archive_entry_set_atime()
+    function: archive_entry_set_ctime()
+    function: archive_entry_set_dev()
+    function: archive_entry_set_filetype()
+    function: archive_entry_set_gid()
+    function: archive_entry_set_ino()
+    function: archive_entry_set_is_data_encrypted()
+    function: archive_entry_set_is_metadata_encrypted()
+    function: archive_entry_set_mode()
+    function: archive_entry_set_mtime()
+    function: archive_entry_set_perm()
+    function: archive_entry_set_rdev()
+    function: archive_entry_set_size()
+    function: archive_entry_set_uid()
+    function: archive_entry_size()
+    function: archive_entry_uid_is_set()
+    function: archive_entry_uname()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_copy_stat.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_link_resolver.c
+    function: archive_entry_linkresolver_free()
+    function: archive_entry_linkresolver_new()
+    function: archive_entry_linkresolver_set_strategy()
+    function: next_entry()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_sparse.c
+    function: archive_entry_sparse_add_entry()
+    function: archive_entry_sparse_clear()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_stat.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_strmode.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_entry_xattr.c
+    function: archive_entry_xattr_clear()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_getdate.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_hmac.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_match.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_options.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_pack_dev.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_pathmatch.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_ppmd7.c
+    function: Ppmd7_Free()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_ppmd8.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_random.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_rb.c
+    function: __archive_rb_tree_find_node()
+    function: __archive_rb_tree_init()
+    function: __archive_rb_tree_insert_node()
+    function: __archive_rb_tree_insert_rebalance()
+    function: __archive_rb_tree_iterate()
+    function: __archive_rb_tree_reparent_nodes()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read.c
+    function: __archive_read_ahead()
+    function: __archive_read_consume()
+    function: __archive_read_filter_ahead()
+    function: __archive_read_filter_consume()
+    function: __archive_read_filter_seek()
+    function: __archive_read_free_filters()
+    function: __archive_read_register_bidder()
+    function: __archive_read_register_format()
+    function: __archive_read_seek()
+    function: _archive_filter_bytes()
+    function: _archive_read_close()
+    function: _archive_read_free()
+    function: _archive_read_next_header()
+    function: _archive_read_next_header2()
+    function: advance_file_pointer()
+    function: archive_read_add_callback_data()
+    function: archive_read_append_callback_data()
+    function: archive_read_data_skip()
+    function: archive_read_extract_set_skip_file()
+    function: archive_read_new()
+    function: archive_read_open1()
+    function: archive_read_set_close_callback()
+    function: archive_read_set_open_callback()
+    function: archive_read_set_read_callback()
+    function: archive_read_set_seek_callback()
+    function: archive_read_set_skip_callback()
+    function: archive_read_set_switch_callback()
+    function: choose_filters()
+    function: choose_format()
+    function: client_close_proxy()
+    function: client_read_proxy()
+    function: client_seek_proxy()
+    function: client_skip_proxy()
+    function: client_switch_proxy()
+    function: close_filters()
+    function: get_filter()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_add_passphrase.c
+    function: __archive_read_next_passphrase()
+    function: __archive_read_reset_passphrase()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_append_filter.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_data_into_fd.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_disk_entry_from_file.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_disk_posix.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_disk_set_standard_lookup.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_extract.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_extract2.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_open_fd.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_open_file.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_open_filename.c
+    function: archive_read_open_filename()
+    function: archive_read_open_filenames()
+    function: file_close()
+    function: file_close2()
+    function: file_open()
+    function: file_read()
+    function: file_seek()
+    function: file_skip()
+    function: file_skip_lseek()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_open_memory.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_set_format.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_set_options.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_all.c
+    function: archive_read_support_filter_all()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_by_code.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_bzip2.c
+    function: archive_read_support_filter_bzip2()
+    function: bzip2_reader_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_compress.c
+    function: archive_read_support_filter_compress()
+    function: compress_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_grzip.c
+    function: archive_read_support_filter_grzip()
+    function: grzip_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_gzip.c
+    function: archive_read_support_filter_gzip()
+    function: gzip_bidder_bid()
+    function: peek_at_header()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_lrzip.c
+    function: archive_read_support_filter_lrzip()
+    function: lrzip_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_lz4.c
+    function: archive_read_support_filter_lz4()
+    function: lz4_reader_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_lzop.c
+    function: archive_read_support_filter_lzop()
+    function: lzop_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_none.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_program.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_rpm.c
+    function: archive_read_support_filter_rpm()
+    function: rpm_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_uu.c
+    function: archive_read_support_filter_uu()
+    function: bid_get_line()
+    function: get_line()
+    function: uudecode_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_xz.c
+    function: archive_read_support_filter_lzip()
+    function: archive_read_support_filter_lzma()
+    function: archive_read_support_filter_xz()
+    function: lzip_bidder_bid()
+    function: lzip_has_member()
+    function: lzma_bidder_bid()
+    function: lzma_bidder_init()
+    function: set_error()
+    function: xz_bidder_bid()
+    function: xz_filter_close()
+    function: xz_filter_read()
+    function: xz_lzma_bidder_init()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_zstd.c
+    function: archive_read_support_filter_zstd()
+    function: zstd_bidder_bid()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_7zip.c
+    function: archive_read_format_7zip_bid()
+    function: archive_read_format_7zip_cleanup()
+    function: archive_read_support_format_7zip()
+    function: free_CodersInfo()
+    function: free_PackInfo()
+    function: free_StreamsInfo()
+    function: free_SubStreamsInfo()
+    function: free_decompression()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_all.c
+    function: archive_read_support_format_all()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_ar.c
+    function: archive_read_format_ar_bid()
+    function: archive_read_format_ar_cleanup()
+    function: archive_read_support_format_ar()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_by_code.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_cab.c
+    function: archive_read_format_cab_bid()
+    function: archive_read_format_cab_cleanup()
+    function: archive_read_support_format_cab()
+    function: lzx_decode_free()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_cpio.c
+    function: archive_read_format_cpio_bid()
+    function: archive_read_format_cpio_cleanup()
+    function: archive_read_support_format_cpio()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_empty.c
+    function: archive_read_format_empty_bid()
+    function: archive_read_format_empty_read_header()
+    function: archive_read_support_format_empty()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_iso9660.c
+    function: archive_read_format_iso9660_bid()
+    function: archive_read_format_iso9660_cleanup()
+    function: archive_read_support_format_iso9660()
+    function: release_files()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_lha.c
+    function: archive_read_format_lha_bid()
+    function: archive_read_format_lha_cleanup()
+    function: archive_read_support_format_lha()
+    function: lha_check_header_format()
+    function: lzh_decode_free()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+    function: add_option()
+    function: archive_read_support_format_mtree()
+    function: bid_entry()
+    function: bid_keycmp()
+    function: bid_keyword()
+    function: bid_keyword_list()
+    function: cleanup()
+    function: detect_form()
+    function: free_options()
+    function: get_line_size()
+    function: mtree_bid()
+    function: mtree_cmp_key()
+    function: mtree_cmp_node()
+    function: next_line()
+    function: parse_escapes()
+    function: parse_file()
+    function: parse_keyword()
+    function: parse_line()
+    function: process_add_entry()
+    function: read_header()
+    function: read_mtree()
+    function: readline()
+    function: remove_option()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar.c
+    function: archive_read_format_rar_bid()
+    function: archive_read_format_rar_cleanup()
+    function: archive_read_format_rar_read_data_skip()
+    function: archive_read_format_rar_read_header()
+    function: archive_read_support_format_rar()
+    function: clear_filters()
+    function: delete_filter()
+    function: delete_program_code()
+    function: free_codes()
+    function: get_time()
+    function: read_header()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar5.c
+    function: archive_read_support_format_rar5()
+    function: bid_sfx()
+    function: bid_standard()
+    function: clear_data_ready_stack()
+    function: free_filters()
+    function: process_base_block()
+    function: rar5_bid()
+    function: rar5_cleanup()
+    function: rar5_init()
+    function: rar5_read_header()
+    function: read_u32()
+    function: read_var()
+    function: read_var_sized()
+    function: skip_unprocessed_bytes()
+    function: try_skip_sfx()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_raw.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+    function: archive_read_format_tar_bid()
+    function: archive_read_format_tar_cleanup()
+    function: archive_read_format_tar_read_header()
+    function: archive_read_format_tar_skip()
+    function: archive_read_support_format_tar()
+    function: checksum()
+    function: gnu_add_sparse_entry()
+    function: gnu_sparse_old_parse()
+    function: gnu_sparse_old_read()
+    function: header_common()
+    function: header_gnutar()
+    function: header_old_tar()
+    function: header_ustar()
+    function: tar_atol()
+    function: tar_atol256()
+    function: tar_atol_base_n()
+    function: tar_read_header()
+    function: validate_number_field()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_warc.c
+    function: _warc_bid()
+    function: _warc_cleanup()
+    function: _warc_rdver()
+    function: archive_read_support_format_warc()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_xar.c
+    function: archive_read_support_format_xar()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+    function: archive_read_format_zip_cleanup()
+    function: archive_read_format_zip_read_data_skip_seekable()
+    function: archive_read_format_zip_read_data_skip_streamable()
+    function: archive_read_format_zip_seekable_bid()
+    function: archive_read_format_zip_seekable_read_header()
+    function: archive_read_format_zip_streamable_bid()
+    function: archive_read_format_zip_streamable_read_header()
+    function: archive_read_support_format_zip()
+    function: archive_read_support_format_zip_seekable()
+    function: archive_read_support_format_zip_streamable()
+    function: cmp_node()
+    function: init_traditional_PKWARE_decryption()
+    function: process_extra()
+    function: read_decryption_header()
+    function: read_eocd()
+    function: real_crc32()
+    function: slurp_central_directory()
+    function: zip_deflate_init()
+    function: zip_read_data_deflate()
+    function: zip_read_local_file_header()
+    function: zip_time()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_string.c
+    function: _utf8_to_unicode()
+    function: add_converter()
+    function: archive_mstring_clean()
+    function: archive_mstring_copy_mbs()
+    function: archive_mstring_copy_mbs_len_l()
+    function: archive_mstring_copy_wcs()
+    function: archive_mstring_get_mbs()
+    function: archive_mstring_get_wcs()
+    function: archive_strappend_char()
+    function: archive_strcat()
+    function: archive_string_append()
+    function: archive_string_append_from_wcs()
+    function: archive_string_conversion_charset_name()
+    function: archive_string_conversion_free()
+    function: archive_string_conversion_from_charset()
+    function: archive_string_default_conversion_for_read()
+    function: archive_string_ensure()
+    function: archive_string_free()
+    function: archive_string_normalize_C()
+    function: archive_strncat()
+    function: archive_strncat_l()
+    function: archive_wstring_append()
+    function: archive_wstring_append_from_mbs()
+    function: archive_wstring_ensure()
+    function: archive_wstring_free()
+    function: archive_wstrncat()
+    function: canonical_charset_name()
+    function: cesu8_to_unicode()
+    function: create_sconv_object()
+    function: find_sconv_object()
+    function: free_sconv_object()
+    function: get_current_charset()
+    function: get_nfc()
+    function: get_sconv_object()
+    function: iconv_strncat_in_locale()
+    function: setup_converter()
+    function: unicode_to_utf8()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_string_sprintf.c
+    function: append_int()
+    function: append_uint()
+    function: archive_string_sprintf()
+    function: archive_string_vsprintf()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_util.c
+    function: __archive_clean()
+    function: __archive_ensure_cloexec_flag()
+    function: archive_clear_error()
+    function: archive_error_string()
+    function: archive_set_error()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_version_details.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_virtual.c
+    function: archive_filter_bytes()
+    function: archive_free()
+    function: archive_read_close()
+    function: archive_read_free()
+    function: archive_read_next_header()
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_b64encode.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_by_name.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_bzip2.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_compress.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_grzip.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_gzip.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_lrzip.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_lz4.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_lzop.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_none.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_program.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_uuencode.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_xz.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_add_filter_zstd.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_disk_posix.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_disk_set_standard_lookup.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_open_fd.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_open_file.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_open_filename.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_open_memory.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_7zip.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_ar.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_by_name.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_cpio.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_cpio_binary.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_cpio_newc.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_cpio_odc.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_filter_by_ext.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_gnutar.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_iso9660.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_mtree.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_pax.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_raw.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_shar.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_ustar.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_v7tar.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_warc.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_xar.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_format_zip.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_options.c
+File: /home/ubuntu/NEW/libarchive/libarchive/archive_write_set_passphrase.c
+File: /home/ubuntu/NEW/libarchive/libarchive/filter_fork_posix.c

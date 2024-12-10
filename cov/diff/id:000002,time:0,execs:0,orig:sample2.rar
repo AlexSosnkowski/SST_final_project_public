@@ -1,0 +1,9 @@
+diff id:000001,time:0,execs:0,orig:sample1.tar -> id:000002,time:0,execs:0,orig:sample2.rar
+Src file: /home/ubuntu/afl-cov/libarchive/libarchive/archive_read.c
+  New 'line' coverage: 1350
+  New 'line' coverage: 1384
+  New 'line' coverage: 1385
+  New 'line' coverage: 1386
+  New 'line' coverage: 666
+  New 'line' coverage: 667
+  New 'line' coverage: 668

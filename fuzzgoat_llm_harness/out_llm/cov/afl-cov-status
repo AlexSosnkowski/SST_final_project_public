@@ -1,0 +1,3 @@
+afl_cov_pid     : 1147096
+afl_cov_version : 0.6.2
+command_line    : ./afl-cov3.py -d ./out_llm --code-dir ./ --coverage-cmd ./harness AFL_FILE

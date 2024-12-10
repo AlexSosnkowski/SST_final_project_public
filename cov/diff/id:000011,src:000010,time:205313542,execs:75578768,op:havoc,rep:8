@@ -1,0 +1,4 @@
+diff id:000010,src:000008,time:205307366,execs:75576185,op:havoc,rep:35 -> id:000011,src:000010,time:205313542,execs:75578768,op:havoc,rep:8
+Src file: /home/ubuntu/afl-cov/libarchive/libarchive/archive_read_support_format_cpio.c
+  New 'line' coverage: 1073
+  New 'line' coverage: 1098

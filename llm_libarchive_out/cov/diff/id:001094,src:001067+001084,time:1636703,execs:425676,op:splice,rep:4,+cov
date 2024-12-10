@@ -1,0 +1,7 @@
+diff id:001093,src:001067+001084,time:1636389,execs:425596,op:splice,rep:5 -> id:001094,src:001067+001084,time:1636703,execs:425676,op:splice,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'line' coverage: 1956
+  New 'line' coverage: 1957
+  New 'line' coverage: 1958
+  New 'line' coverage: 1959
+  New 'line' coverage: 1960

@@ -1,0 +1,38 @@
+diff id:000007,src:000002,time:97,execs:72,op:quick,pos:0,+cov -> id:000008,src:000002,time:696,execs:255,op:havoc,rep:6,+cov
+Src file: /home/ubuntu/afl-cov/libarchive/libarchive/archive_read_support_format_rar5.c
+  New 'line' coverage: 1128
+Src file: /home/ubuntu/afl-cov/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'function' coverage: archive_read_format_zip_streamable_read_header()
+  New 'line' coverage: 3387
+  New 'line' coverage: 3403
+  New 'line' coverage: 3406
+  New 'line' coverage: 3408
+  New 'line' coverage: 3409
+  New 'line' coverage: 3410
+  New 'line' coverage: 3412
+  New 'line' coverage: 3421
+  New 'line' coverage: 3423
+  New 'line' coverage: 3426
+  New 'line' coverage: 3427
+  New 'line' coverage: 3428
+  New 'line' coverage: 3434
+  New 'line' coverage: 3435
+  New 'line' coverage: 3437
+  New 'line' coverage: 3439
+  New 'line' coverage: 3441
+  New 'line' coverage: 3442
+  New 'line' coverage: 3445
+  New 'line' coverage: 3446
+  New 'line' coverage: 3448
+  New 'line' coverage: 3449
+  New 'line' coverage: 3450
+  New 'line' coverage: 3452
+  New 'line' coverage: 3453
+  New 'line' coverage: 3454
+  New 'line' coverage: 3455
+  New 'line' coverage: 3457
+  New 'line' coverage: 3458
+  New 'line' coverage: 3459
+  New 'line' coverage: 3479
+  New 'line' coverage: 3485
+  New 'line' coverage: 3486

@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - trace.lcov_info_final - libarchive/archive_random.c</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="title">LCOV - code coverage report</td></tr>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+            <tr>
+              <td width="100%">
+                <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="10%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">libarchive</a> - archive_random.c<span style="font-size: 80%;"> (source / <a href="archive_random.c.func-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="5%"></td>
+            <td width="5%" class="headerCovTableHead">Coverage</td>
+            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Total</td>
+            <td width="5%" class="headerCovTableHead" title="Exercised code only">Hit</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">trace.lcov_info_final</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test Date:</td>
+            <td class="headerValue">2024-12-10 15:26:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">0</td>
+          </tr>
+                  <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+          </table>
+
+          <table cellpadding=0 cellspacing=0 border=0>
+            <tr>
+              <td><br></td>
+            </tr>
+            <tr>
+              <td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : /*-</span>
+<span id="L2"><span class="lineNum">       2</span>              :  * Copyright (c) 2014 Michihiro NAKAJIMA</span>
+<span id="L3"><span class="lineNum">       3</span>              :  * All rights reserved.</span>
+<span id="L4"><span class="lineNum">       4</span>              :  *</span>
+<span id="L5"><span class="lineNum">       5</span>              :  * Redistribution and use in source and binary forms, with or without</span>
+<span id="L6"><span class="lineNum">       6</span>              :  * modification, are permitted provided that the following conditions</span>
+<span id="L7"><span class="lineNum">       7</span>              :  * are met:</span>
+<span id="L8"><span class="lineNum">       8</span>              :  * 1. Redistributions of source code must retain the above copyright</span>
+<span id="L9"><span class="lineNum">       9</span>              :  *    notice, this list of conditions and the following disclaimer.</span>
+<span id="L10"><span class="lineNum">      10</span>              :  * 2. Redistributions in binary form must reproduce the above copyright</span>
+<span id="L11"><span class="lineNum">      11</span>              :  *    notice, this list of conditions and the following disclaimer in the</span>
+<span id="L12"><span class="lineNum">      12</span>              :  *    documentation and/or other materials provided with the distribution.</span>
+<span id="L13"><span class="lineNum">      13</span>              :  *</span>
+<span id="L14"><span class="lineNum">      14</span>              :  * THIS SOFTWARE IS PROVIDED BY THE AUTHOR(S) ``AS IS'' AND ANY EXPRESS OR</span>
+<span id="L15"><span class="lineNum">      15</span>              :  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES</span>
+<span id="L16"><span class="lineNum">      16</span>              :  * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.</span>
+<span id="L17"><span class="lineNum">      17</span>              :  * IN NO EVENT SHALL THE AUTHOR(S) BE LIABLE FOR ANY DIRECT, INDIRECT,</span>
+<span id="L18"><span class="lineNum">      18</span>              :  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT</span>
+<span id="L19"><span class="lineNum">      19</span>              :  * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,</span>
+<span id="L20"><span class="lineNum">      20</span>              :  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY</span>
+<span id="L21"><span class="lineNum">      21</span>              :  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
+<span id="L22"><span class="lineNum">      22</span>              :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF</span>
+<span id="L23"><span class="lineNum">      23</span>              :  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span id="L24"><span class="lineNum">      24</span>              :  */</span>
+<span id="L25"><span class="lineNum">      25</span>              : </span>
+<span id="L26"><span class="lineNum">      26</span>              : #include &quot;archive_platform.h&quot;</span>
+<span id="L27"><span class="lineNum">      27</span>              : </span>
+<span id="L28"><span class="lineNum">      28</span>              : #ifdef HAVE_STDLIB_H</span>
+<span id="L29"><span class="lineNum">      29</span>              : #include &lt;stdlib.h&gt;</span>
+<span id="L30"><span class="lineNum">      30</span>              : #endif</span>
+<span id="L31"><span class="lineNum">      31</span>              : </span>
+<span id="L32"><span class="lineNum">      32</span>              : #if !defined(HAVE_ARC4RANDOM_BUF) &amp;&amp; (!defined(_WIN32) || defined(__CYGWIN__))</span>
+<span id="L33"><span class="lineNum">      33</span>              : </span>
+<span id="L34"><span class="lineNum">      34</span>              : #ifdef HAVE_FCNTL</span>
+<span id="L35"><span class="lineNum">      35</span>              : #include &lt;fcntl.h&gt;</span>
+<span id="L36"><span class="lineNum">      36</span>              : #endif</span>
+<span id="L37"><span class="lineNum">      37</span>              : #ifdef HAVE_LIMITS_H</span>
+<span id="L38"><span class="lineNum">      38</span>              : #include &lt;limits.h&gt;</span>
+<span id="L39"><span class="lineNum">      39</span>              : #endif</span>
+<span id="L40"><span class="lineNum">      40</span>              : #ifdef HAVE_UNISTD_H</span>
+<span id="L41"><span class="lineNum">      41</span>              : #include &lt;unistd.h&gt;</span>
+<span id="L42"><span class="lineNum">      42</span>              : #endif</span>
+<span id="L43"><span class="lineNum">      43</span>              : #ifdef HAVE_SYS_TYPES_H</span>
+<span id="L44"><span class="lineNum">      44</span>              : #include &lt;sys/types.h&gt;</span>
+<span id="L45"><span class="lineNum">      45</span>              : #endif</span>
+<span id="L46"><span class="lineNum">      46</span>              : #ifdef HAVE_SYS_TIME_H</span>
+<span id="L47"><span class="lineNum">      47</span>              : #include &lt;sys/time.h&gt;</span>
+<span id="L48"><span class="lineNum">      48</span>              : #endif</span>
+<span id="L49"><span class="lineNum">      49</span>              : #ifdef HAVE_PTHREAD_H</span>
+<span id="L50"><span class="lineNum">      50</span>              : #include &lt;pthread.h&gt;</span>
+<span id="L51"><span class="lineNum">      51</span>              : #endif</span>
+<span id="L52"><span class="lineNum">      52</span>              : </span>
+<span id="L53"><span class="lineNum">      53</span>              : static void la_arc4random_buf(void *, size_t);</span>
+<span id="L54"><span class="lineNum">      54</span>              : </span>
+<span id="L55"><span class="lineNum">      55</span>              : #endif /* HAVE_ARC4RANDOM_BUF */</span>
+<span id="L56"><span class="lineNum">      56</span>              : </span>
+<span id="L57"><span class="lineNum">      57</span>              : #include &quot;archive.h&quot;</span>
+<span id="L58"><span class="lineNum">      58</span>              : #include &quot;archive_random_private.h&quot;</span>
+<span id="L59"><span class="lineNum">      59</span>              : </span>
+<span id="L60"><span class="lineNum">      60</span>              : #if defined(_WIN32) &amp;&amp; !defined(__CYGWIN__)</span>
+<span id="L61"><span class="lineNum">      61</span>              : #if defined(HAVE_BCRYPT_H) &amp;&amp; _WIN32_WINNT &gt;= _WIN32_WINNT_VISTA</span>
+<span id="L62"><span class="lineNum">      62</span>              : /* don't use bcrypt when XP needs to be supported */</span>
+<span id="L63"><span class="lineNum">      63</span>              : #include &lt;bcrypt.h&gt;</span>
+<span id="L64"><span class="lineNum">      64</span>              : </span>
+<span id="L65"><span class="lineNum">      65</span>              : /* Common in other bcrypt implementations, but missing from VS2008. */</span>
+<span id="L66"><span class="lineNum">      66</span>              : #ifndef BCRYPT_SUCCESS</span>
+<span id="L67"><span class="lineNum">      67</span>              : #define BCRYPT_SUCCESS(r) ((NTSTATUS)(r) == STATUS_SUCCESS)</span>
+<span id="L68"><span class="lineNum">      68</span>              : #endif</span>
+<span id="L69"><span class="lineNum">      69</span>              : </span>
+<span id="L70"><span class="lineNum">      70</span>              : #elif defined(HAVE_WINCRYPT_H)</span>
+<span id="L71"><span class="lineNum">      71</span>              : #include &lt;wincrypt.h&gt;</span>
+<span id="L72"><span class="lineNum">      72</span>              : #endif</span>
+<span id="L73"><span class="lineNum">      73</span>              : #endif</span>
+<span id="L74"><span class="lineNum">      74</span>              : </span>
+<span id="L75"><span class="lineNum">      75</span>              : #ifndef O_CLOEXEC</span>
+<span id="L76"><span class="lineNum">      76</span>              : #define O_CLOEXEC       0</span>
+<span id="L77"><span class="lineNum">      77</span>              : #endif</span>
+<span id="L78"><span class="lineNum">      78</span>              : </span>
+<span id="L79"><span class="lineNum">      79</span>              : /*</span>
+<span id="L80"><span class="lineNum">      80</span>              :  * Random number generator function.</span>
+<span id="L81"><span class="lineNum">      81</span>              :  * This simply calls arc4random_buf function if the platform provides it.</span>
+<span id="L82"><span class="lineNum">      82</span>              :  */</span>
+<span id="L83"><span class="lineNum">      83</span>              : </span>
+<span id="L84"><span class="lineNum">      84</span>              : int</span>
+<span id="L85"><span class="lineNum">      85</span> <span class="tlaUNC tlaBgUNC">           0 : archive_random(void *buf, size_t nbytes)</span></span>
+<span id="L86"><span class="lineNum">      86</span>              : {</span>
+<span id="L87"><span class="lineNum">      87</span>              : #if defined(_WIN32) &amp;&amp; !defined(__CYGWIN__)</span>
+<span id="L88"><span class="lineNum">      88</span>              : # if defined(HAVE_BCRYPT_H) &amp;&amp; _WIN32_WINNT &gt;= _WIN32_WINNT_VISTA</span>
+<span id="L89"><span class="lineNum">      89</span>              :         NTSTATUS status;</span>
+<span id="L90"><span class="lineNum">      90</span>              :         BCRYPT_ALG_HANDLE hAlg;</span>
+<span id="L91"><span class="lineNum">      91</span>              : </span>
+<span id="L92"><span class="lineNum">      92</span>              :         status = BCryptOpenAlgorithmProvider(&amp;hAlg, BCRYPT_RNG_ALGORITHM, NULL, 0);</span>
+<span id="L93"><span class="lineNum">      93</span>              :         if (!BCRYPT_SUCCESS(status))</span>
+<span id="L94"><span class="lineNum">      94</span>              :                 return ARCHIVE_FAILED;</span>
+<span id="L95"><span class="lineNum">      95</span>              :         status = BCryptGenRandom(hAlg, buf, (ULONG)nbytes, 0);</span>
+<span id="L96"><span class="lineNum">      96</span>              :         BCryptCloseAlgorithmProvider(hAlg, 0);</span>
+<span id="L97"><span class="lineNum">      97</span>              :         if (!BCRYPT_SUCCESS(status))</span>
+<span id="L98"><span class="lineNum">      98</span>              :                 return ARCHIVE_FAILED;</span>
+<span id="L99"><span class="lineNum">      99</span>              : </span>
+<span id="L100"><span class="lineNum">     100</span>              :         return ARCHIVE_OK;</span>
+<span id="L101"><span class="lineNum">     101</span>              : # else</span>
+<span id="L102"><span class="lineNum">     102</span>              :         HCRYPTPROV hProv;</span>
+<span id="L103"><span class="lineNum">     103</span>              :         BOOL success;</span>
+<span id="L104"><span class="lineNum">     104</span>              : </span>
+<span id="L105"><span class="lineNum">     105</span>              :         success = CryptAcquireContext(&amp;hProv, NULL, NULL, PROV_RSA_FULL,</span>
+<span id="L106"><span class="lineNum">     106</span>              :             CRYPT_VERIFYCONTEXT);</span>
+<span id="L107"><span class="lineNum">     107</span>              :         if (!success &amp;&amp; GetLastError() == (DWORD)NTE_BAD_KEYSET) {</span>
+<span id="L108"><span class="lineNum">     108</span>              :                 success = CryptAcquireContext(&amp;hProv, NULL, NULL,</span>
+<span id="L109"><span class="lineNum">     109</span>              :                     PROV_RSA_FULL, CRYPT_NEWKEYSET);</span>
+<span id="L110"><span class="lineNum">     110</span>              :         }</span>
+<span id="L111"><span class="lineNum">     111</span>              :         if (success) {</span>
+<span id="L112"><span class="lineNum">     112</span>              :                 success = CryptGenRandom(hProv, (DWORD)nbytes, (BYTE*)buf);</span>
+<span id="L113"><span class="lineNum">     113</span>              :                 CryptReleaseContext(hProv, 0);</span>
+<span id="L114"><span class="lineNum">     114</span>              :                 if (success)</span>
+<span id="L115"><span class="lineNum">     115</span>              :                         return ARCHIVE_OK;</span>
+<span id="L116"><span class="lineNum">     116</span>              :         }</span>
+<span id="L117"><span class="lineNum">     117</span>              :         /* TODO: Does this case really happen? */</span>
+<span id="L118"><span class="lineNum">     118</span>              :         return ARCHIVE_FAILED;</span>
+<span id="L119"><span class="lineNum">     119</span>              : # endif</span>
+<span id="L120"><span class="lineNum">     120</span>              : #elif !defined(HAVE_ARC4RANDOM_BUF) &amp;&amp; (!defined(_WIN32) || defined(__CYGWIN__))</span>
+<span id="L121"><span class="lineNum">     121</span>              :         la_arc4random_buf(buf, nbytes);</span>
+<span id="L122"><span class="lineNum">     122</span>              :         return ARCHIVE_OK;</span>
+<span id="L123"><span class="lineNum">     123</span>              : #else</span>
+<span id="L124"><span class="lineNum">     124</span> <span class="tlaUNC">           0 :         arc4random_buf(buf, nbytes);</span></span>
+<span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC">           0 :         return ARCHIVE_OK;</span></span>
+<span id="L126"><span class="lineNum">     126</span>              : #endif</span>
+<span id="L127"><span class="lineNum">     127</span>              : }</span>
+<span id="L128"><span class="lineNum">     128</span>              : </span>
+<span id="L129"><span class="lineNum">     129</span>              : #if !defined(HAVE_ARC4RANDOM_BUF) &amp;&amp; (!defined(_WIN32) || defined(__CYGWIN__))</span>
+<span id="L130"><span class="lineNum">     130</span>              : </span>
+<span id="L131"><span class="lineNum">     131</span>              : /*      $OpenBSD: arc4random.c,v 1.24 2013/06/11 16:59:50 deraadt Exp $ */</span>
+<span id="L132"><span class="lineNum">     132</span>              : /*</span>
+<span id="L133"><span class="lineNum">     133</span>              :  * Copyright (c) 1996, David Mazieres &lt;dm@uun.org&gt;</span>
+<span id="L134"><span class="lineNum">     134</span>              :  * Copyright (c) 2008, Damien Miller &lt;djm@openbsd.org&gt;</span>
+<span id="L135"><span class="lineNum">     135</span>              :  *</span>
+<span id="L136"><span class="lineNum">     136</span>              :  * Permission to use, copy, modify, and distribute this software for any</span>
+<span id="L137"><span class="lineNum">     137</span>              :  * purpose with or without fee is hereby granted, provided that the above</span>
+<span id="L138"><span class="lineNum">     138</span>              :  * copyright notice and this permission notice appear in all copies.</span>
+<span id="L139"><span class="lineNum">     139</span>              :  *</span>
+<span id="L140"><span class="lineNum">     140</span>              :  * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES</span>
+<span id="L141"><span class="lineNum">     141</span>              :  * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF</span>
+<span id="L142"><span class="lineNum">     142</span>              :  * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR</span>
+<span id="L143"><span class="lineNum">     143</span>              :  * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES</span>
+<span id="L144"><span class="lineNum">     144</span>              :  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN</span>
+<span id="L145"><span class="lineNum">     145</span>              :  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF</span>
+<span id="L146"><span class="lineNum">     146</span>              :  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</span>
+<span id="L147"><span class="lineNum">     147</span>              :  */</span>
+<span id="L148"><span class="lineNum">     148</span>              : </span>
+<span id="L149"><span class="lineNum">     149</span>              : /*</span>
+<span id="L150"><span class="lineNum">     150</span>              :  * Arc4 random number generator for OpenBSD.</span>
+<span id="L151"><span class="lineNum">     151</span>              :  *</span>
+<span id="L152"><span class="lineNum">     152</span>              :  * This code is derived from section 17.1 of Applied Cryptography,</span>
+<span id="L153"><span class="lineNum">     153</span>              :  * second edition, which describes a stream cipher allegedly</span>
+<span id="L154"><span class="lineNum">     154</span>              :  * compatible with RSA Labs &quot;RC4&quot; cipher (the actual description of</span>
+<span id="L155"><span class="lineNum">     155</span>              :  * which is a trade secret).  The same algorithm is used as a stream</span>
+<span id="L156"><span class="lineNum">     156</span>              :  * cipher called &quot;arcfour&quot; in Tatu Ylonen's ssh package.</span>
+<span id="L157"><span class="lineNum">     157</span>              :  *</span>
+<span id="L158"><span class="lineNum">     158</span>              :  * RC4 is a registered trademark of RSA Laboratories.</span>
+<span id="L159"><span class="lineNum">     159</span>              :  */</span>
+<span id="L160"><span class="lineNum">     160</span>              : </span>
+<span id="L161"><span class="lineNum">     161</span>              : #ifdef __GNUC__</span>
+<span id="L162"><span class="lineNum">     162</span>              : #define inline __inline</span>
+<span id="L163"><span class="lineNum">     163</span>              : #else                           /* !__GNUC__ */</span>
+<span id="L164"><span class="lineNum">     164</span>              : #define inline</span>
+<span id="L165"><span class="lineNum">     165</span>              : #endif                          /* !__GNUC__ */</span>
+<span id="L166"><span class="lineNum">     166</span>              : </span>
+<span id="L167"><span class="lineNum">     167</span>              : struct arc4_stream {</span>
+<span id="L168"><span class="lineNum">     168</span>              :         uint8_t i;</span>
+<span id="L169"><span class="lineNum">     169</span>              :         uint8_t j;</span>
+<span id="L170"><span class="lineNum">     170</span>              :         uint8_t s[256];</span>
+<span id="L171"><span class="lineNum">     171</span>              : };</span>
+<span id="L172"><span class="lineNum">     172</span>              : </span>
+<span id="L173"><span class="lineNum">     173</span>              : #define RANDOMDEV       &quot;/dev/urandom&quot;</span>
+<span id="L174"><span class="lineNum">     174</span>              : #define KEYSIZE         128</span>
+<span id="L175"><span class="lineNum">     175</span>              : #ifdef HAVE_PTHREAD_H</span>
+<span id="L176"><span class="lineNum">     176</span>              : static pthread_mutex_t  arc4random_mtx = PTHREAD_MUTEX_INITIALIZER;</span>
+<span id="L177"><span class="lineNum">     177</span>              : #define _ARC4_LOCK()    pthread_mutex_lock(&amp;arc4random_mtx);</span>
+<span id="L178"><span class="lineNum">     178</span>              : #define _ARC4_UNLOCK()  pthread_mutex_unlock(&amp;arc4random_mtx);</span>
+<span id="L179"><span class="lineNum">     179</span>              : #else</span>
+<span id="L180"><span class="lineNum">     180</span>              : #define _ARC4_LOCK()</span>
+<span id="L181"><span class="lineNum">     181</span>              : #define _ARC4_UNLOCK()</span>
+<span id="L182"><span class="lineNum">     182</span>              : #endif</span>
+<span id="L183"><span class="lineNum">     183</span>              : </span>
+<span id="L184"><span class="lineNum">     184</span>              : static int rs_initialized;</span>
+<span id="L185"><span class="lineNum">     185</span>              : static struct arc4_stream rs;</span>
+<span id="L186"><span class="lineNum">     186</span>              : static pid_t arc4_stir_pid;</span>
+<span id="L187"><span class="lineNum">     187</span>              : static int arc4_count;</span>
+<span id="L188"><span class="lineNum">     188</span>              : </span>
+<span id="L189"><span class="lineNum">     189</span>              : static inline uint8_t arc4_getbyte(void);</span>
+<span id="L190"><span class="lineNum">     190</span>              : static void arc4_stir(void);</span>
+<span id="L191"><span class="lineNum">     191</span>              : </span>
+<span id="L192"><span class="lineNum">     192</span>              : static inline void</span>
+<span id="L193"><span class="lineNum">     193</span>              : arc4_init(void)</span>
+<span id="L194"><span class="lineNum">     194</span>              : {</span>
+<span id="L195"><span class="lineNum">     195</span>              :         int     n;</span>
+<span id="L196"><span class="lineNum">     196</span>              : </span>
+<span id="L197"><span class="lineNum">     197</span>              :         for (n = 0; n &lt; 256; n++)</span>
+<span id="L198"><span class="lineNum">     198</span>              :                 rs.s[n] = n;</span>
+<span id="L199"><span class="lineNum">     199</span>              :         rs.i = 0;</span>
+<span id="L200"><span class="lineNum">     200</span>              :         rs.j = 0;</span>
+<span id="L201"><span class="lineNum">     201</span>              : }</span>
+<span id="L202"><span class="lineNum">     202</span>              : </span>
+<span id="L203"><span class="lineNum">     203</span>              : static inline void</span>
+<span id="L204"><span class="lineNum">     204</span>              : arc4_addrandom(uint8_t *dat, int datlen)</span>
+<span id="L205"><span class="lineNum">     205</span>              : {</span>
+<span id="L206"><span class="lineNum">     206</span>              :         int     n;</span>
+<span id="L207"><span class="lineNum">     207</span>              :         uint8_t si;</span>
+<span id="L208"><span class="lineNum">     208</span>              : </span>
+<span id="L209"><span class="lineNum">     209</span>              :         rs.i--;</span>
+<span id="L210"><span class="lineNum">     210</span>              :         for (n = 0; n &lt; 256; n++) {</span>
+<span id="L211"><span class="lineNum">     211</span>              :                 rs.i = (rs.i + 1);</span>
+<span id="L212"><span class="lineNum">     212</span>              :                 si = rs.s[rs.i];</span>
+<span id="L213"><span class="lineNum">     213</span>              :                 rs.j = (rs.j + si + dat[n % datlen]);</span>
+<span id="L214"><span class="lineNum">     214</span>              :                 rs.s[rs.i] = rs.s[rs.j];</span>
+<span id="L215"><span class="lineNum">     215</span>              :                 rs.s[rs.j] = si;</span>
+<span id="L216"><span class="lineNum">     216</span>              :         }</span>
+<span id="L217"><span class="lineNum">     217</span>              :         rs.j = rs.i;</span>
+<span id="L218"><span class="lineNum">     218</span>              : }</span>
+<span id="L219"><span class="lineNum">     219</span>              : </span>
+<span id="L220"><span class="lineNum">     220</span>              : static void</span>
+<span id="L221"><span class="lineNum">     221</span>              : arc4_stir(void)</span>
+<span id="L222"><span class="lineNum">     222</span>              : {</span>
+<span id="L223"><span class="lineNum">     223</span>              :         int done, fd, i;</span>
+<span id="L224"><span class="lineNum">     224</span>              :         struct {</span>
+<span id="L225"><span class="lineNum">     225</span>              :                 struct timeval  tv;</span>
+<span id="L226"><span class="lineNum">     226</span>              :                 pid_t           pid;</span>
+<span id="L227"><span class="lineNum">     227</span>              :                 uint8_t         rnd[KEYSIZE];</span>
+<span id="L228"><span class="lineNum">     228</span>              :         } rdat;</span>
+<span id="L229"><span class="lineNum">     229</span>              : </span>
+<span id="L230"><span class="lineNum">     230</span>              :         if (!rs_initialized) {</span>
+<span id="L231"><span class="lineNum">     231</span>              :                 arc4_init();</span>
+<span id="L232"><span class="lineNum">     232</span>              :                 rs_initialized = 1;</span>
+<span id="L233"><span class="lineNum">     233</span>              :         }</span>
+<span id="L234"><span class="lineNum">     234</span>              :         done = 0;</span>
+<span id="L235"><span class="lineNum">     235</span>              :         fd = open(RANDOMDEV, O_RDONLY | O_CLOEXEC, 0);</span>
+<span id="L236"><span class="lineNum">     236</span>              :         if (fd &gt;= 0) {</span>
+<span id="L237"><span class="lineNum">     237</span>              :                 if (read(fd, &amp;rdat, KEYSIZE) == KEYSIZE)</span>
+<span id="L238"><span class="lineNum">     238</span>              :                         done = 1;</span>
+<span id="L239"><span class="lineNum">     239</span>              :                 (void)close(fd);</span>
+<span id="L240"><span class="lineNum">     240</span>              :         }</span>
+<span id="L241"><span class="lineNum">     241</span>              :         if (!done) {</span>
+<span id="L242"><span class="lineNum">     242</span>              :                 (void)gettimeofday(&amp;rdat.tv, NULL);</span>
+<span id="L243"><span class="lineNum">     243</span>              :                 rdat.pid = getpid();</span>
+<span id="L244"><span class="lineNum">     244</span>              :                 /* We'll just take whatever was on the stack too... */</span>
+<span id="L245"><span class="lineNum">     245</span>              :         }</span>
+<span id="L246"><span class="lineNum">     246</span>              : </span>
+<span id="L247"><span class="lineNum">     247</span>              :         arc4_addrandom((uint8_t *)&amp;rdat, KEYSIZE);</span>
+<span id="L248"><span class="lineNum">     248</span>              : </span>
+<span id="L249"><span class="lineNum">     249</span>              :         /*</span>
+<span id="L250"><span class="lineNum">     250</span>              :          * Discard early keystream, as per recommendations in:</span>
+<span id="L251"><span class="lineNum">     251</span>              :          * &quot;(Not So) Random Shuffles of RC4&quot; by Ilya Mironov.</span>
+<span id="L252"><span class="lineNum">     252</span>              :          * As per the Network Operations Division, cryptographic requirements</span>
+<span id="L253"><span class="lineNum">     253</span>              :          * published on wikileaks on March 2017.</span>
+<span id="L254"><span class="lineNum">     254</span>              :          */</span>
+<span id="L255"><span class="lineNum">     255</span>              : </span>
+<span id="L256"><span class="lineNum">     256</span>              :         for (i = 0; i &lt; 3072; i++)</span>
+<span id="L257"><span class="lineNum">     257</span>              :                 (void)arc4_getbyte();</span>
+<span id="L258"><span class="lineNum">     258</span>              :         arc4_count = 1600000;</span>
+<span id="L259"><span class="lineNum">     259</span>              : }</span>
+<span id="L260"><span class="lineNum">     260</span>              : </span>
+<span id="L261"><span class="lineNum">     261</span>              : static void</span>
+<span id="L262"><span class="lineNum">     262</span>              : arc4_stir_if_needed(void)</span>
+<span id="L263"><span class="lineNum">     263</span>              : {</span>
+<span id="L264"><span class="lineNum">     264</span>              :         pid_t pid = getpid();</span>
+<span id="L265"><span class="lineNum">     265</span>              : </span>
+<span id="L266"><span class="lineNum">     266</span>              :         if (arc4_count &lt;= 0 || !rs_initialized || arc4_stir_pid != pid) {</span>
+<span id="L267"><span class="lineNum">     267</span>              :                 arc4_stir_pid = pid;</span>
+<span id="L268"><span class="lineNum">     268</span>              :                 arc4_stir();</span>
+<span id="L269"><span class="lineNum">     269</span>              :         }</span>
+<span id="L270"><span class="lineNum">     270</span>              : }</span>
+<span id="L271"><span class="lineNum">     271</span>              : </span>
+<span id="L272"><span class="lineNum">     272</span>              : static inline uint8_t</span>
+<span id="L273"><span class="lineNum">     273</span>              : arc4_getbyte(void)</span>
+<span id="L274"><span class="lineNum">     274</span>              : {</span>
+<span id="L275"><span class="lineNum">     275</span>              :         uint8_t si, sj;</span>
+<span id="L276"><span class="lineNum">     276</span>              : </span>
+<span id="L277"><span class="lineNum">     277</span>              :         rs.i = (rs.i + 1);</span>
+<span id="L278"><span class="lineNum">     278</span>              :         si = rs.s[rs.i];</span>
+<span id="L279"><span class="lineNum">     279</span>              :         rs.j = (rs.j + si);</span>
+<span id="L280"><span class="lineNum">     280</span>              :         sj = rs.s[rs.j];</span>
+<span id="L281"><span class="lineNum">     281</span>              :         rs.s[rs.i] = sj;</span>
+<span id="L282"><span class="lineNum">     282</span>              :         rs.s[rs.j] = si;</span>
+<span id="L283"><span class="lineNum">     283</span>              :         return (rs.s[(si + sj) &amp; 0xff]);</span>
+<span id="L284"><span class="lineNum">     284</span>              : }</span>
+<span id="L285"><span class="lineNum">     285</span>              : </span>
+<span id="L286"><span class="lineNum">     286</span>              : static void</span>
+<span id="L287"><span class="lineNum">     287</span>              : la_arc4random_buf(void *_buf, size_t n)</span>
+<span id="L288"><span class="lineNum">     288</span>              : {</span>
+<span id="L289"><span class="lineNum">     289</span>              :         uint8_t *buf = (uint8_t *)_buf;</span>
+<span id="L290"><span class="lineNum">     290</span>              :         _ARC4_LOCK();</span>
+<span id="L291"><span class="lineNum">     291</span>              :         arc4_stir_if_needed();</span>
+<span id="L292"><span class="lineNum">     292</span>              :         while (n--) {</span>
+<span id="L293"><span class="lineNum">     293</span>              :                 if (--arc4_count &lt;= 0)</span>
+<span id="L294"><span class="lineNum">     294</span>              :                         arc4_stir();</span>
+<span id="L295"><span class="lineNum">     295</span>              :                 buf[n] = arc4_getbyte();</span>
+<span id="L296"><span class="lineNum">     296</span>              :         }</span>
+<span id="L297"><span class="lineNum">     297</span>              :         _ARC4_UNLOCK();</span>
+<span id="L298"><span class="lineNum">     298</span>              : }</span>
+<span id="L299"><span class="lineNum">     299</span>              : </span>
+<span id="L300"><span class="lineNum">     300</span>              : #endif /* !HAVE_ARC4RANDOM_BUF */</span>
+        </pre>
+              </td>
+            </tr>
+          </table>
+          <br>
+
+          <table width="100%" border=0 cellspacing=0 cellpadding=0>
+            <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+            <tr><td class="versionInfo">Generated by: <a href="https://github.com//linux-test-project/lcov" target="_parent">LCOV version 2.0-1</a></td></tr>
+          </table>
+          <br>
+
+</body>
+</html>

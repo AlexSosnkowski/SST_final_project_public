@@ -1,0 +1,10 @@
+# All functions / lines in this file were never executed by any
+# AFL test case.
+File: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+    function: json_parse()
+File: /home/ubuntu/final_project_testing/fuzzgoat/harness.c
+File: /home/ubuntu/final_project_testing/fuzzgoat/main.c
+    function: main()
+    function: process_array()
+    function: process_object()
+    function: process_value()

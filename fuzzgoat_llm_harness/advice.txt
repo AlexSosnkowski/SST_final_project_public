@@ -1,0 +1,39 @@
+To generate initial seed files for fuzzing, you should create JSON strings of varying complexity. Here are some examples:
+
+1. **Simple JSON object:**
+   ```json
+   {"key": "value"}
+   ```
+
+2. **JSON array with multiple types:**
+   ```json
+   ["string", 123, true, null, {"nested": "object"}]
+   ```
+
+3. **Empty JSON object and array:**
+   ```json
+   {}
+   ```
+
+   ```json
+   []
+   ```
+
+4. **Complex nested JSON:**
+   ```json
+   {
+       "name": "Example",
+       "age": 25,
+       "address": {
+           "street": "123 Main St",
+           "city": "Anytown"
+       },
+       "phoneNumbers": [
+           {"type": "home", "number": "123-456-7890"},
+           {"type": "work", "number": "123-555-0123"}
+       ]
+   }
+   ```
+
+Save these JSON strings into separate files in a directory named `seeds`. You can then point AFL++ to this directory when starting the fuzzing process.
+

@@ -1,0 +1,9 @@
+# id:NNNNNN*_file, cycle, src_file, coverage_type, fcn/line
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, default_alloc()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, default_free()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_parse_ex()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, new_value()
+id:000000,time:0,execs:0,orig:seed, 0, /home/ubuntu/final_project_testing/fuzzgoat/harness.c, function, main()
+id:000042,src:000000+000025,time:3183,execs:849,op:splice,rep:2,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_value_free()
+id:000042,src:000000+000025,time:3183,execs:849,op:splice,rep:2,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, json_value_free_ex()
+id:000226,src:000224,time:122774,execs:54880,op:havoc,rep:7,+cov, 0, /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c, function, hex_value()

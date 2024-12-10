@@ -1,0 +1,16 @@
+diff id:000576,src:000513,time:832867,execs:215899,op:havoc,rep:2 -> id:000577,src:000513,time:833256,execs:216001,op:havoc,rep:2,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_mtree.c
+  New 'function' coverage: bid_keycmp()
+  New 'line' coverage: 424
+  New 'line' coverage: 426
+  New 'line' coverage: 428
+  New 'line' coverage: 429
+  New 'line' coverage: 430
+  New 'line' coverage: 431
+  New 'line' coverage: 432
+  New 'line' coverage: 433
+  New 'line' coverage: 434
+  New 'line' coverage: 501
+  New 'line' coverage: 508
+  New 'line' coverage: 509
+  New 'line' coverage: 510

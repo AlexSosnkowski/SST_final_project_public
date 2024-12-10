@@ -1,0 +1,4 @@
+diff id:000295,src:000286,time:300496,execs:144827,op:havoc,rep:4,+cov -> id:000296,src:000286,time:300560,execs:144852,op:havoc,rep:1,+cov
+Src file: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+  New 'line' coverage: 457
+  New 'line' coverage: 458

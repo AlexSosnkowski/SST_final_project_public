@@ -1,0 +1,18 @@
+diff id:000085,src:000000+000015,time:15279,execs:6085,op:splice,rep:16 -> id:000086,src:000000+000015,time:15369,execs:6124,op:splice,rep:8,+cov
+Src file: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+  New 'line' coverage: 152
+  New 'line' coverage: 154
+  New 'line' coverage: 237
+  New 'line' coverage: 239
+  New 'line' coverage: 241
+  New 'line' coverage: 242
+Src file: /home/ubuntu/final_project_testing/fuzzgoat/main.c
+  New 'function' coverage: process_object()
+  New 'line' coverage: 47
+  New 'line' coverage: 49
+  New 'line' coverage: 50
+  New 'line' coverage: 53
+  New 'line' coverage: 54
+  New 'line' coverage: 87
+  New 'line' coverage: 88
+  New 'line' coverage: 89

@@ -1,0 +1,6 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=../harness
+AFL_CUSTOM_INFO_PROGRAM_ARGV=@@
+AFL_CUSTOM_INFO_OUT=../llm_libarchive_out/default
+# command line:
+'afl-fuzz' '-i' '../in' '-o' '../llm_libarchive_out' '-V' '7200' '-s' '42' '../harness' '@@'

@@ -1,0 +1,27 @@
+diff id:000334,src:000006,time:413675,execs:107179,op:havoc,rep:13,+cov -> id:000335,src:000006,time:416585,execs:107696,op:havoc,rep:15,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read.c
+  New 'line' coverage: 1332
+  New 'line' coverage: 1333
+  New 'line' coverage: 1334
+  New 'line' coverage: 1391
+  New 'line' coverage: 1392
+  New 'line' coverage: 1393
+  New 'line' coverage: 1394
+  New 'line' coverage: 1395
+  New 'line' coverage: 1396
+  New 'line' coverage: 1397
+  New 'line' coverage: 507
+  New 'line' coverage: 508
+  New 'line' coverage: 578
+  New 'line' coverage: 579
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_filter_xz.c
+  New 'function' coverage: set_error()
+  New 'line' coverage: 418
+  New 'line' coverage: 421
+  New 'line' coverage: 443
+  New 'line' coverage: 444
+  New 'line' coverage: 447
+  New 'line' coverage: 460
+  New 'line' coverage: 702
+  New 'line' coverage: 703
+  New 'line' coverage: 704

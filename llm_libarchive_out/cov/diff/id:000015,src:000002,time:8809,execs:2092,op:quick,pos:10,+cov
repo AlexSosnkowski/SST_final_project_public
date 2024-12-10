@@ -1,0 +1,18 @@
+diff id:000014,src:000002,time:8779,execs:2084,op:quick,pos:9,+cov -> id:000015,src:000002,time:8809,execs:2092,op:quick,pos:10,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_entry.c
+  New 'function' coverage: archive_entry_set_is_data_encrypted()
+  New 'function' coverage: archive_entry_set_is_metadata_encrypted()
+  New 'line' coverage: 1523
+  New 'line' coverage: 1525
+  New 'line' coverage: 1526
+  New 'line' coverage: 1530
+  New 'line' coverage: 1533
+  New 'line' coverage: 1535
+  New 'line' coverage: 1536
+  New 'line' coverage: 1540
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_rar.c
+  New 'line' coverage: 1000
+  New 'line' coverage: 1001
+  New 'line' coverage: 1002
+  New 'line' coverage: 1003
+  New 'line' coverage: 1005

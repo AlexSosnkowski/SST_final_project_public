@@ -1,0 +1,12 @@
+diff id:001119,src:001061+000215,time:1694220,execs:440287,op:splice,rep:14 -> id:001120,src:001061+000215,time:1694398,execs:440333,op:splice,rep:9,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_zip.c
+  New 'function' coverage: archive_read_format_zip_read_data_skip_streamable()
+  New 'line' coverage: 1297
+  New 'line' coverage: 3497
+  New 'line' coverage: 3499
+  New 'line' coverage: 3500
+  New 'line' coverage: 3502
+  New 'line' coverage: 3503
+  New 'line' coverage: 3504
+  New 'line' coverage: 3505
+  New 'line' coverage: 3509

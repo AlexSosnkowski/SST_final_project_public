@@ -1,0 +1,24 @@
+diff id:000293,src:000006,time:381654,execs:98663,op:havoc,rep:7,+cov -> id:000294,src:000006,time:381737,execs:98685,op:havoc,rep:8,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_read_support_format_tar.c
+  New 'function' coverage: header_old_tar()
+  New 'line' coverage: 1516
+  New 'line' coverage: 1519
+  New 'line' coverage: 1520
+  New 'line' coverage: 1526
+  New 'line' coverage: 1528
+  New 'line' coverage: 1529
+  New 'line' coverage: 1530
+  New 'line' coverage: 1531
+  New 'line' coverage: 1532
+  New 'line' coverage: 1533
+  New 'line' coverage: 1540
+  New 'line' coverage: 1541
+  New 'line' coverage: 1544
+  New 'line' coverage: 1545
+  New 'line' coverage: 869
+  New 'line' coverage: 876
+  New 'line' coverage: 877
+  New 'line' coverage: 878
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string.c
+  New 'line' coverage: 4013
+  New 'line' coverage: 4014

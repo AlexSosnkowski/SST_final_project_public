@@ -1,0 +1,10 @@
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/parse1.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/parse2.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/parse3.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/parse4.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/reader1.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/reader2.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/reader3.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/reader4.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/tree1.c?ref_type=heads
+https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/example/tree2.c?ref_type=heads

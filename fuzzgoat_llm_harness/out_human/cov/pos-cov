@@ -1,0 +1,18 @@
+# All functions / lines in this file were executed by at
+# least one AFL test case. See the cov/id-delta-cov file
+# for more information.
+File: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+    function: default_alloc()
+    function: default_free()
+    function: hex_value()
+    function: json_parse()
+    function: json_parse_ex()
+    function: json_value_free()
+    function: json_value_free_ex()
+    function: new_value()
+File: /home/ubuntu/final_project_testing/fuzzgoat/harness.c
+File: /home/ubuntu/final_project_testing/fuzzgoat/main.c
+    function: main()
+    function: process_array()
+    function: process_object()
+    function: process_value()

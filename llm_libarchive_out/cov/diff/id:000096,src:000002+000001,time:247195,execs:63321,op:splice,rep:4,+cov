@@ -1,0 +1,3 @@
+diff id:000095,src:000002+000001,time:247160,execs:63312,op:splice,rep:4 -> id:000096,src:000002+000001,time:247195,execs:63321,op:splice,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_rb.c
+  New 'line' coverage: 331

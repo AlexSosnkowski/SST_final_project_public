@@ -1,0 +1,35 @@
+diff id:001173,src:001146,time:1794594,execs:464428,op:havoc,rep:1 -> id:001174,src:001146,time:1796883,execs:465009,op:havoc,rep:4,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string.c
+  New 'function' coverage: get_nfc()
+  New 'line' coverage: 2358
+  New 'line' coverage: 2359
+  New 'line' coverage: 2360
+  New 'line' coverage: 2362
+  New 'line' coverage: 2363
+  New 'line' coverage: 2364
+  New 'line' coverage: 2365
+  New 'line' coverage: 2373
+  New 'line' coverage: 2374
+  New 'line' coverage: 2375
+  New 'line' coverage: 2415
+  New 'line' coverage: 2416
+  New 'line' coverage: 2473
+  New 'line' coverage: 2805
+  New 'line' coverage: 2807
+  New 'line' coverage: 2809
+  New 'line' coverage: 2810
+  New 'line' coverage: 2811
+  New 'line' coverage: 2812
+  New 'line' coverage: 2813
+  New 'line' coverage: 2814
+  New 'line' coverage: 2815
+  New 'line' coverage: 2816
+  New 'line' coverage: 2817
+  New 'line' coverage: 2818
+  New 'line' coverage: 3040
+  New 'line' coverage: 3057
+  New 'line' coverage: 3072
+  New 'line' coverage: 3077
+  New 'line' coverage: 3080
+  New 'line' coverage: 3081
+  New 'line' coverage: 3082

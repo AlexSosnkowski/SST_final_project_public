@@ -1,0 +1,2 @@
+https://www.geeksforgeeks.org/cjson-json-file-write-read-modify-in-c/
+https://github.com/DaveGamble/cJSON

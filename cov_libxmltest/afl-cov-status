@@ -1,0 +1,3 @@
+afl_cov_pid     : 128287
+afl_cov_version : 0.6.2
+command_line    : ./afl-cov3.py -d ../finalproject/output/ --code-dir ../finalproject/libxml2-2.9.14/ --coverage-cmd ../finalproject/fuzz_harness AFL_FILE

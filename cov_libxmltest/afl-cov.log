@@ -1,0 +1,169 @@
+    Non-zero exit status '2' for CMD: /usr/bin/lcov --no-checksum --capture --initial --directory ../finalproject/libxml2-2.9.14/ --output-file ../finalproject/output//cov/lcov/trace.lcov_base
+Capturing coverage data from ../finalproject/libxml2-2.9.14/
+geninfo cmd: '/usr/bin/geninfo ../finalproject/libxml2-2.9.14/ --output-filename ../finalproject/output//cov/lcov/trace.lcov_base --no-checksum --initial --memory 0'
+Found gcov version: 13.2.0
+Using intermediate gcov format
+Writing temporary data to /tmp/geninfo_datuZHX
+Scanning ../finalproject/libxml2-2.9.14/ for .gcno files ...
+Found 91 graph files in ../finalproject/libxml2-2.9.14/
+Processing ../finalproject/libxml2-2.9.14/xmlsave.gcno
+Processing ../finalproject/libxml2-2.9.14/xpath.gcno
+Processing ../finalproject/libxml2-2.9.14/a-conftest.gcno
+Processing ../finalproject/libxml2-2.9.14/nanohttp.gcno
+Processing ../finalproject/libxml2-2.9.14/buf.gcno
+Processing ../finalproject/libxml2-2.9.14/error.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlstring.gcno
+Processing ../finalproject/libxml2-2.9.14/debugXML.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlmemory.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlschemas.gcno
+Processing ../finalproject/libxml2-2.9.14/HTMLparser.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlsave.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xpath.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/nanohttp.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/buf.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/error.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlstring.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/debugXML.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlmemory.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlschemas.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/HTMLparser.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlwriter.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/catalog.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/encoding.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/HTMLtree.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/dict.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/hash.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/c14n.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlunicode.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/threads.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/list.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlmodule.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/nanoftp.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlIO.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/pattern.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/uri.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/globals.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/valid.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/chvalid.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xzlib.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlreader.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/legacy.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xinclude.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/entities.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/SAX.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlschemastypes.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xlink.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xmlregexp.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/schematron.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/relaxng.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/tree.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/parserInternals.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/parser.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/xpointer.gcno
+Processing ../finalproject/libxml2-2.9.14/.libs/SAX2.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlwriter.gcno
+Processing ../finalproject/libxml2-2.9.14/catalog.gcno
+Processing ../finalproject/libxml2-2.9.14/encoding.gcno
+Processing ../finalproject/libxml2-2.9.14/HTMLtree.gcno
+Processing ../finalproject/libxml2-2.9.14/dict.gcno
+Processing ../finalproject/libxml2-2.9.14/hash.gcno
+Processing ../finalproject/libxml2-2.9.14/c14n.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlunicode.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlcatalog.gcno
+Processing ../finalproject/libxml2-2.9.14/threads.gcno
+Processing ../finalproject/libxml2-2.9.14/list.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlmodule.gcno
+Processing ../finalproject/libxml2-2.9.14/nanoftp.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlIO.gcno
+Processing ../finalproject/libxml2-2.9.14/pattern.gcno
+Processing ../finalproject/libxml2-2.9.14/uri.gcno
+Processing ../finalproject/libxml2-2.9.14/globals.gcno
+Processing ../finalproject/libxml2-2.9.14/valid.gcno
+Processing ../finalproject/libxml2-2.9.14/chvalid.gcno
+Processing ../finalproject/libxml2-2.9.14/xzlib.gcno
+Processing ../finalproject/libxml2-2.9.14/xmllint.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlreader.gcno
+Processing ../finalproject/libxml2-2.9.14/legacy.gcno
+Processing ../finalproject/libxml2-2.9.14/xinclude.gcno
+Processing ../finalproject/libxml2-2.9.14/entities.gcno
+Processing ../finalproject/libxml2-2.9.14/SAX.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlschemastypes.gcno
+Processing ../finalproject/libxml2-2.9.14/xlink.gcno
+Processing ../finalproject/libxml2-2.9.14/xmlregexp.gcno
+Processing ../finalproject/libxml2-2.9.14/schematron.gcno
+Processing ../finalproject/libxml2-2.9.14/relaxng.gcno
+Processing ../finalproject/libxml2-2.9.14/tree.gcno
+Processing ../finalproject/libxml2-2.9.14/parserInternals.gcno
+Processing ../finalproject/libxml2-2.9.14/parser.gcno
+Processing ../finalproject/libxml2-2.9.14/xpointer.gcno
+Processing ../finalproject/libxml2-2.9.14/SAX2.gcno
+geninfo: ERROR: unable to open /home/ubuntu/finalproject/libxml2-2.9.14/conftest.c: No such file or directory
+	(use "geninfo --ignore-errors source ..." to bypass this error)
+
+*** Imported 2 new test cases from: ../finalproject/output//default/queue
+
+[+] AFL test case: id:000000,time:0,execs:0,orig:test.xml (0 / 2), cycle: 0
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum --capture --directory ../finalproject/libxml2-2.9.14/ --output-file ../finalproject/output//cov/lcov/trace.lcov_info
+Capturing coverage data from ../finalproject/libxml2-2.9.14/
+geninfo cmd: '/usr/bin/geninfo ../finalproject/libxml2-2.9.14/ --output-filename ../finalproject/output//cov/lcov/trace.lcov_info --no-checksum --memory 0'
+Found gcov version: 13.2.0
+Using intermediate gcov format
+Writing temporary data to /tmp/geninfo_datexBz
+Scanning ../finalproject/libxml2-2.9.14/ for .gcda files ...
+geninfo: ERROR: no .gcda files found in ../finalproject/libxml2-2.9.14/
+	(use "geninfo --ignore-errors empty ..." to bypass this error)
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum -a ../finalproject/output//cov/lcov/trace.lcov_base -a ../finalproject/output//cov/lcov/trace.lcov_info --output-file /tmp/tmpiw6lbsbc
+lcov: ERROR: trace file '../finalproject/output//cov/lcov/trace.lcov_base' is empty
+	(use "lcov --ignore-errors empty ..." to bypass this error)
+Combining tracefiles.
+.. found 2 files to aggregate.
+Merging ../finalproject/output//cov/lcov/trace.lcov_base..1 remaining
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum -r /tmp/tmpiw6lbsbc /usr/include/\*  --output-file ../finalproject/output//cov/lcov/trace.lcov_info_final
+lcov: ERROR: no valid records found in tracefile /tmp/tmpiw6lbsbc
+	(use "lcov --ignore-errors empty ..." to bypass this error)
+[-] Coverage file '../finalproject/output//cov/lcov/trace.lcov_info_final' does not exist, skipping.
+[+] AFL test case: id:000001,src:000000,time:28,execs:201,op:havoc,rep:2,+cov (1 / 2), cycle: 0
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum --capture --directory ../finalproject/libxml2-2.9.14/ --output-file ../finalproject/output//cov/lcov/trace.lcov_info
+Capturing coverage data from ../finalproject/libxml2-2.9.14/
+geninfo cmd: '/usr/bin/geninfo ../finalproject/libxml2-2.9.14/ --output-filename ../finalproject/output//cov/lcov/trace.lcov_info --no-checksum --memory 0'
+Found gcov version: 13.2.0
+Using intermediate gcov format
+Writing temporary data to /tmp/geninfo_datC68_
+Scanning ../finalproject/libxml2-2.9.14/ for .gcda files ...
+geninfo: ERROR: no .gcda files found in ../finalproject/libxml2-2.9.14/
+	(use "geninfo --ignore-errors empty ..." to bypass this error)
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum -a ../finalproject/output//cov/lcov/trace.lcov_base -a ../finalproject/output//cov/lcov/trace.lcov_info --output-file /tmp/tmpebzocijp
+lcov: ERROR: trace file '../finalproject/output//cov/lcov/trace.lcov_base' is empty
+	(use "lcov --ignore-errors empty ..." to bypass this error)
+Combining tracefiles.
+.. found 2 files to aggregate.
+Merging ../finalproject/output//cov/lcov/trace.lcov_base..1 remaining
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum -r /tmp/tmpebzocijp /usr/include/\*  --output-file ../finalproject/output//cov/lcov/trace.lcov_info_final
+lcov: ERROR: no valid records found in tracefile /tmp/tmpebzocijp
+	(use "lcov --ignore-errors empty ..." to bypass this error)
+[-] Coverage file '../finalproject/output//cov/lcov/trace.lcov_info_final' does not exist, skipping.
+[+] Processed 2 / 2 test cases.
+
+[+] Final zero coverage report: ../finalproject/output//cov/zero-cov
+[+] Final positive coverage report: ../finalproject/output//cov/pos-cov
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum --capture --directory ../finalproject/libxml2-2.9.14/ --output-file ../finalproject/output//cov/lcov/trace.lcov_info
+Capturing coverage data from ../finalproject/libxml2-2.9.14/
+geninfo cmd: '/usr/bin/geninfo ../finalproject/libxml2-2.9.14/ --output-filename ../finalproject/output//cov/lcov/trace.lcov_info --no-checksum --memory 0'
+Found gcov version: 13.2.0
+Using intermediate gcov format
+Writing temporary data to /tmp/geninfo_datzos3
+Scanning ../finalproject/libxml2-2.9.14/ for .gcda files ...
+geninfo: ERROR: no .gcda files found in ../finalproject/libxml2-2.9.14/
+	(use "geninfo --ignore-errors empty ..." to bypass this error)
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum -a ../finalproject/output//cov/lcov/trace.lcov_base -a ../finalproject/output//cov/lcov/trace.lcov_info --output-file /tmp/tmpcsv9vkg3
+lcov: ERROR: trace file '../finalproject/output//cov/lcov/trace.lcov_base' is empty
+	(use "lcov --ignore-errors empty ..." to bypass this error)
+Combining tracefiles.
+.. found 2 files to aggregate.
+Merging ../finalproject/output//cov/lcov/trace.lcov_base..1 remaining
+    Non-zero exit status '1' for CMD: /usr/bin/lcov --no-checksum -r /tmp/tmpcsv9vkg3 /usr/include/\*  --output-file ../finalproject/output//cov/lcov/trace.lcov_info_final
+lcov: ERROR: no valid records found in tracefile /tmp/tmpcsv9vkg3
+	(use "lcov --ignore-errors empty ..." to bypass this error)
+    Non-zero exit status '1' for CMD: /usr/bin/genhtml --output-directory ../finalproject/output//cov/web ../finalproject/output//cov/lcov/trace.lcov_info_final
+genhtml: ERROR: cannot read file ../finalproject/output//cov/lcov/trace.lcov_info_final!
+[+] Final lcov web report: ../finalproject/output//cov/web/index.html

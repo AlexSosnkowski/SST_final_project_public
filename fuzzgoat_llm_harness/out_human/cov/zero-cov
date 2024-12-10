@@ -1,0 +1,6 @@
+# All functions / lines in this file were never executed by any
+# AFL test case.
+File: /home/ubuntu/final_project_testing/fuzzgoat/fuzzgoat.c
+File: /home/ubuntu/final_project_testing/fuzzgoat/harness.c
+    function: main()
+File: /home/ubuntu/final_project_testing/fuzzgoat/main.c

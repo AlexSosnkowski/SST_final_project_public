@@ -1,0 +1,4 @@
+diff id:000842,src:000620,time:1126972,execs:291748,op:havoc,rep:1 -> id:000843,src:000620+000140,time:1131290,execs:292875,op:splice,rep:5,+cov
+Src file: /home/ubuntu/NEW/libarchive/libarchive/archive_string.c
+  New 'line' coverage: 299
+  New 'line' coverage: 301

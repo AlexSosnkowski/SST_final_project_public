@@ -1,0 +1,3 @@
+afl_cov_pid     : 1127654
+afl_cov_version : 0.6.2
+command_line    : ./afl-cov3.py -d ./out_human --code-dir ./ --coverage-cmd ./fuzzgoat AFL_FILE --overwrite
