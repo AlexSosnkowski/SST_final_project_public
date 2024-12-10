@@ -31,7 +31,7 @@ from langchain.chains.question_answering import load_qa_chain
 #global parameters / variables
 
 #this should be done with env variables!! please no steal
-api_key = "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"
+api_key = "YOUR-API-KEY-HERE"
 
 divider = "SEED ADVICE"
 quote_chars = "```"
